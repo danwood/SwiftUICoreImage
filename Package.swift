@@ -20,9 +20,7 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "SwiftUICoreImage",
-            dependencies: []),
-        .testTarget(
-            name: "SwiftUICoreImageTests",
-            dependencies: ["SwiftUICoreImage"]),
+            dependencies: [],
+			path: "Sources"),
     ]
 )
