@@ -9,16 +9,16 @@ Core Image is a wonderful image-processsing toolkit in macOS and iOS, but it's a
 The purpose of this package is to provide an easier way to chain multiple filters to CIImage instances and then render them into SwiftUI (or any other context — SwiftUI is not needed).
 
 ```Swift
-	Image(ciImage: CIImage("Bernie.jpeg")
-		.sepiaTone(intensity: sepia)
-		.recropping { image in
-			image
-				.clampedToExtent(active: clamped)
-				.gaussianBlur(radius: gaussianBlurRadius)
-		}
-	)
-		.resizable()
-		.aspectRatio(contentMode: .fit)
+    Image(ciImage: CIImage("Bernie.jpeg")
+        .sepiaTone(intensity: sepia)
+        .recropping { image in
+            image
+                .clampedToExtent(active: clamped)
+                .gaussianBlur(radius: gaussianBlurRadius)
+        }
+    )
+        .resizable()
+        .aspectRatio(contentMode: .fit)
 ```
 
 ## Manifest
@@ -26,14 +26,14 @@ The purpose of this package is to provide an easier way to chain multiple filter
 Included in this package is:
 
  * CIImage+Generated.swift
-	* 208 modifiers on `CIImage` that return a new modified `CIImage` (or the original if unmodified)
-	* 20 static functions that return a newly generated `CIImage`
+    * 208 modifiers on `CIImage` that return a new modified `CIImage` (or the original if unmodified)
+    * 20 static functions that return a newly generated `CIImage`
 * CIImage-Extensions.swift
-	* Convenience initializers for `CIImage` from a resource name and from an `NSImage`/`UIImage`
-	* Modifiers for `CIImage` to return cropped, scaled, etc. to be easier to work with SwiftUI
-	* Overloads of several built-in `CIImage` modifier functions that take an `active` boolean parameter
+    * Convenience initializers for `CIImage` from a resource name and from an `NSImage`/`UIImage`
+    * Modifiers for `CIImage` to return cropped, scaled, etc. to be easier to work with SwiftUI
+    * Overloads of several built-in `CIImage` modifier functions that take an `active` boolean parameter
 * Image-Extensions.swift
-	* Convenience initializer to create a SwiftUI `Image` from a `CIImage`
+    * Convenience initializer to create a SwiftUI `Image` from a `CIImage`
 
 ## How This Works
 
@@ -58,17 +58,17 @@ Then, just chain modifiers to that `CIImage` to indicate what to modify.
 Many modifiers are simple. For instance:
 
 ```Swift
-	Image(ciImage: CIImage("Halloween.jpeg")
-		.xRay()
-	)
+    Image(ciImage: CIImage("Halloween.jpeg")
+        .xRay()
+    )
 ```
 
 If you wish to toggle whether the filter is applied, use the `active` parameter (default value of `true`):
 
 ```Swift
-	Image(ciImage: CIImage("Halloween.jpeg")
-		.xRay(active: isMachineOn)
-	)
+    Image(ciImage: CIImage("Halloween.jpeg")
+        .xRay(active: isMachineOn)
+    )
 ```
 
 ## Using Without SwiftUI
@@ -76,27 +76,39 @@ If you wish to toggle whether the filter is applied, use the `active` parameter 
 SwiftUI is not needed at all. Just create a `CIImage` and perform operations. Then, render to a bitmap.
 
 ```Swift
-	let tiledImage: CIImage = CIImage("HeyGoodMorning.png").
-		.triangleTile(center: .zero, angle: 0.356, width: 2.0)
+    let tiledImage: CIImage = CIImage("HeyGoodMorning.png").
+        .triangleTile(center: .zero, angle: 0.356, width: 2.0)
 
     imageView.image = UIImage(CIImage: tiledImage)
 ```
 
 ## Other Notes
 
-If you've used Core Image, you'll know that sometimes you need to play with the extent of an image, e.g. clamping an image to have infinite edges before applying a gaussian blur, then re-cropping to the image's original extent. To accomplish this, you can use the `recropping` modifier which is followed by a closure. The operation saves the extent of the image, applies whatever is in the closure, and then re-crops to that extent. In the example below, the image in `ciImage` is converted into an image with the pixel colors along its edges extend infinitely in all directions, then it is blurred, and then upon exit from the closure, the returned image is re-cropped. 
+If you've used Core Image, you'll know that sometimes you need to play with the extent of an image, e.g. clamping an image to have infinite edges before applying a gaussian blur, then re-cropping to the image's original extent. To accomplish this, you can use the **`recropping`** modifier which is followed by a closure. The operation saves the extent of the image, applies whatever is in the closure, and then re-crops to that extent. In the example below, the image in `ciImage` is converted into an image with the pixel colors along its edges extend infinitely in all directions, then it is blurred, and then upon exit from the closure, the returned image is re-cropped. 
 
 ```Swift
-	ciImage
-		.recropping { image in
-			image
-				.clampedToExtent()
-				.gaussianBlur(radius: 10)
-		}
+    ciImage
+        .recropping { image in
+            image
+                .clampedToExtent()
+                .gaussianBlur(radius: 10)
+        }
 ```
 
 ![Compare unblurred, improper blurring, and proper blurring](./Resources/blurring.jpeg)
 
+The `recropping` modifier is also useful if you find that the filter has grown your image's extent slightly and you want to clamp it to its original size.
 
+Another useful operation is **`replacing`**. Much like `recropping` except that it does not mess with the extent of the image. You pass in a closure, which starts with the image you were working with; your closure returns a new image. This can be useful when working with the compositing operations in Core Image, which require a *background* image to be passed in.  What if your chain of operations is on the background image, and you want to overlay something on top? Just wrap your operation in `.replacing` and return the composited image.
+
+```Swift
+    ciImage
+        .replacing { backgroundImage in
+            ciImage2
+                .sourceAtopCompositing(backgroundImage: backgroundImage)
+        }
+```
+
+In this case, the image in `ciImage2` is the foreground image, placed atop the `backgroundImage`, then returned to the chain of operations.
 
 
