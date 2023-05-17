@@ -90,6 +90,8 @@ A typical use of this works well in conjunction with `GeometryReader`. For examp
             .scaledToFit(newSize)
             .sharpenLuminance(sharpness: 1.0, radius: 5)
         )
+            .resizable()    // Make sure retina image is scaled to fit
+            .aspectRatio(contentMode: .fit)
     }
 ``` 
 ![Compare original, sharpened without pre-scaling, sharpened after pre-scaled](./Resources/sharpening.jpeg)
