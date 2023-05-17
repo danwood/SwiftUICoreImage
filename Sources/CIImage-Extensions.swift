@@ -111,7 +111,7 @@ public extension CIImage {
 	/// convenience, to be similar to SwiftUI view offset
 	func offset(by offset: CGSize) -> CIImage {
 		guard offset != .zero else { return self }
-		return self.transformed(by: CGAffineTransformMakeTranslation(offset.width, offset.height))
+		return self.transformed(by: CGAffineTransform(translationX: offset.width, y: offset.height))
 	}
 
 }
