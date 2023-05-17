@@ -71,6 +71,30 @@ If you wish to toggle whether the filter is applied, use the `active` parameter 
     )
 ```
 
+### Image Scaling
+
+Many Core Image filters need pixel values for parameters. Therefore, it may be needed to get an image scaled to an appropriate size before applying operations. For example, applying a 10-pixel-radius blur to a 6000✖4000 image that is then scaled down to 300✖200 won't look the same as first scaling the image to 300✖200 and then applying the 10-pixel-radius blur.
+
+Core Image provides a scaling operation (`CILanczosScaleTransform` and `lanczosScaleTransform()`) but this package also includes more convenient alternatives: `scaledToFill()` and `scaledToFit()`.
+
+A typical use of this works well in conjunction with `GeometryReader`. For example:
+
+```Swift
+    GeometryReader { geo in
+        let geoFrame = geo.frame(in: .local)
+        // Resize image to double the frame size, assuming we are on a retina display
+        let newSize: CGSize = CGSize(width: geoFrame.integral.size.width * 2,
+                                    height: geoFrame.integral.size.height * 2)
+
+        Image(ciImage: CIImage("M83.jpeg")
+            .scaledToFit(newSize)
+            .sharpenLuminance(sharpness: 1.0, radius: 5)
+        )
+    }
+``` 
+![Compare original, sharpened without pre-scaling, sharpened after pre-scaled](./Resources/sharpening.jpeg)
+
+
 ## Using Without SwiftUI
 
 SwiftUI is not needed at all. Just create a `CIImage` and perform operations. Then, render to a bitmap.
