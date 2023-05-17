@@ -43,7 +43,7 @@ When creating SwiftUI code, I think it's important that you can use [Inert Modif
 
 In this code, I've made sure that each of our image modifiers come with inert modifiers: in some cases it's passing in a parameter that clearly has no effect (e.g. zero intensity, zero radius); or it's a nil background image when combining with another image; or a boolean `active` parameter. If the parameter(s) specified would cause no change in the image, then the identity (self) is returned forthwith.
 
-The contents of CIImage-Filters.swift are, not surprisingly, generated source code, using code that I've included in this repository (but won't be included in the package import). This loops through the core image metadata that Apple provides (`CIFilter.filterNames(inCategories: nil)`). Unfortunately this list is somewhat out of date and contains a number of inconsistencies that I've done by best to overcome.  There are some JSON files that provide additional metadata such as a list of the functions that actually do have online documentation — 56 functions aren't documented so some guesswork is needed — or repairs to missing or obsolete documentation. You probably won't need to run this code unless you have some special requirements or the list has been updated in a future (post-Ventura, post iOS-16) OS release.
+The contents of CIImage-Filters.swift are generated source code, using code that I've included in this repository (`CIImage-Generation.swift`, not included in the package import). This loops through the core image metadata that Apple provides (`CIFilter.filterNames(inCategories: nil)`). Unfortunately this list is somewhat out of date and contains a number of inconsistencies that I've done my best to overcome.  There are some JSON files that provide additional metadata such as a list of the functions that actually do have online documentation — 56 functions aren't documented so some guesswork is needed — or repairs to missing or obsolete documentation. You probably won't need to run this code unless you have some special requirements or the list has been updated in a future (post-Ventura, post iOS-16) OS release.
 
 ## Using With SwiftUI
 
@@ -51,7 +51,7 @@ Remember that Core Image operations are really just a "recipe" for the processin
 
 Instead of creating a SwiftUI `Image` using a [built-in initializer](https://developer.apple.com/documentation/swiftui/image) from a resource name or other image type (`CGImage`, `NSImage`, `UIImage`), this code provides a new initializer to create an `Image` from a `CIImage`. When SwiftUI needs to render the image, the Core Image is rendered to the screen.
 
-So instead, we create a CIImage using one of the [built-in initializers](https://developer.apple.com/documentation/coreimage/ciimage) or the convenience methods included here to create from a resource name or another image type.
+Your typical approach, then, will be to create an `Image`, passing in a `CIImage` created using one of the [built-in initializers](https://developer.apple.com/documentation/coreimage/ciimage) or the convenience methods included here to create from a resource name or another image type.
 
 Then, just chain modifiers to that `CIImage` to indicate what to modify.
 
@@ -71,20 +71,22 @@ If you wish to toggle whether the filter is applied, use the `active` parameter 
     )
 ```
 
+Chain any number of modifiers found in `CIImage-Filters.swift` to construct the desired result.
+
 ### Image Scaling
 
-Many Core Image filters need pixel values for parameters. Therefore, it may be needed to get an image scaled to an appropriate size before applying operations. For example, applying a 10-pixel-radius blur to a 6000⨉4000 image that is then scaled down to 300⨉200 won't look the same as first scaling the image to 300⨉200 and then applying the 10-pixel-radius blur.
+Many Core Image filters use pixel values for parameters. Therefore, it may be needed to get an image scaled to an appropriate size _before_ applying operations. For example, applying a 10-pixel-radius blur to a 6000⨉4000 image that is then scaled down to 300⨉200 might not yield what you want; perhaps you want to first scale the image to 300⨉200 and then apply the 10-pixel-radius blur.
 
-Core Image provides a scaling operation (`CILanczosScaleTransform` and `lanczosScaleTransform()`) but this package also includes more convenient alternatives: `scaledToFill()` and `scaledToFit()`.
+Core Image provides a scaling operation (`CILanczosScaleTransform` and `lanczosScaleTransform()`) but this package also includes more convenient alternatives: `scaledToFill()` and `scaledToFit()` where you pass in the dimensions you want.
 
 A typical use of this works well in conjunction with `GeometryReader`. For example:
 
 ```Swift
     GeometryReader { geo in
-        let geoFrame = geo.frame(in: .local)
+        let geoSize: CGSize = geo.frame(in: .local).integral.size
         // Resize image to double the frame size, assuming we are on a retina display
-        let newSize: CGSize = CGSize(width: geoFrame.integral.size.width * 2,
-                                    height: geoFrame.integral.size.height * 2)
+        let newSize: CGSize = CGSize(width: geoSize.width * 2,
+                                    height: geoSize.height * 2)
 
         Image(ciImage: CIImage("M83.jpeg")
             .scaledToFit(newSize)
@@ -146,3 +148,9 @@ In your code:
 ```Swift
 import SwiftUICoreImage
 ```
+
+That's it!
+
+---
+
+Please file an issue or pull request if you can think of an improvement to the code or documentation of the generated filters, or find any other helpful utilities for manipulating Core Images in this toolkit!
