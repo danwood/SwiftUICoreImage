@@ -25,6 +25,6 @@ let package = Package(
         .target(
             name: "SwiftUICoreImage",
             dependencies: [],
-            path: "Sources"),
+            path: "Sources")
     ]
 )
