@@ -123,7 +123,7 @@ If you've used Core Image, you'll know that sometimes you need to play with the 
 
 ![Compare unblurred, improper blurring, and proper blurring](./Resources/blurring.jpeg)
 
-The `recropping` modifier is also useful if you find that the filter has grown your image's extent slightly and you want to clamp it to its original size.
+The `recropping` modifier is also useful if you find that a filter (e.g. `comicEffect()` has grown your image's extent slightly and you want to clamp it to its original size.
 
 Another useful operation is **`replacing`**. Much like `recropping` except that it does not mess with the extent of the image. You pass in a closure, which starts with the image you were working with; your closure returns a new image. This can be useful when working with the compositing operations in Core Image, which require a *background* image to be passed in.  What if your chain of operations is on the background image, and you want to overlay something on top? Just wrap your operation in `.replacing` and return the composited image.
 
@@ -136,5 +136,3 @@ Another useful operation is **`replacing`**. Much like `recropping` except that 
 ```
 
 In this case, the image in `ciImage2` is the foreground image, placed atop the `backgroundImage`, then returned to the chain of operations.
-
-
