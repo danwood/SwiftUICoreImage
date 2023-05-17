@@ -136,3 +136,13 @@ Another useful operation is **`replacing`**. Much like `recropping` except that 
 ```
 
 In this case, the image in `ciImage2` is the foreground image, placed atop the `backgroundImage`, then returned to the chain of operations.
+
+## Using Package
+
+In Xcode, Choose File > Add Packages… then enter the URL of this repository into the search bar, and continue from there.
+
+In your code:
+
+```Swift
+import SwiftUICoreImage
+```
