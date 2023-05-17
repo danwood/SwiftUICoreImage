@@ -73,7 +73,7 @@ If you wish to toggle whether the filter is applied, use the `active` parameter 
 
 ### Image Scaling
 
-Many Core Image filters need pixel values for parameters. Therefore, it may be needed to get an image scaled to an appropriate size before applying operations. For example, applying a 10-pixel-radius blur to a 6000✖4000 image that is then scaled down to 300✖200 won't look the same as first scaling the image to 300✖200 and then applying the 10-pixel-radius blur.
+Many Core Image filters need pixel values for parameters. Therefore, it may be needed to get an image scaled to an appropriate size before applying operations. For example, applying a 10-pixel-radius blur to a 6000⨉4000 image that is then scaled down to 300⨉200 won't look the same as first scaling the image to 300⨉200 and then applying the 10-pixel-radius blur.
 
 Core Image provides a scaling operation (`CILanczosScaleTransform` and `lanczosScaleTransform()`) but this package also includes more convenient alternatives: `scaledToFill()` and `scaledToFit()`.
 
