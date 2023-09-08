@@ -20,7 +20,7 @@ public extension Image {
 		if let cgImage = Self.context.createCGImage(ciImage, from: ciImage.extent) {
 			self.init(cgImage, scale: 1.0, orientation: .up, label: Text(""))
 		} else {
-			self.init(systemName: "unknown")
+			self.init(systemName: "questionmark")
 		}
 #elseif canImport(AppKit)
 		// Looks like the NSCIImageRep is slightly better optimized for repeated runs,
