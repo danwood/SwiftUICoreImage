@@ -8,6 +8,7 @@ import CoreImage.CIFilterBuiltins
 import CoreML
 import AVFoundation
 
+@available(iOS 13, macOS 10.15, macCatalyst 13, *)
 public extension CIImage {
 
 	//
@@ -689,7 +690,7 @@ public extension CIImage {
 	///   - useInverseLookupTable: Boolean value used to select the Look Up Table from the AVCameraCalibrationData.
 	///   - active: should this filter be applied
 	/// - Returns: processed new `CIImage`, or identity if `active` is false
-	@available(iOS 13, macOS 10.15, *)
+	@available(iOS 13, macOS 10.15, macCatalyst 14, *)
 	func cameraCalibrationLensCorrection(avcameracalibrationdata: AVCameraCalibrationData,
 										 useInverseLookupTable: Bool = false,
 										 active: Bool = true) -> CIImage {
@@ -1765,7 +1766,7 @@ public extension CIImage {
 	///   - shape: UNKNOWN
 	///   - active: should this filter be applied
 	/// - Returns: processed new `CIImage`, or identity if `active` is false
-	@available(iOS 13, macOS 10.15, *)
+	@available(iOS 13, macOS 10.15, macCatalyst 14, *)
 	func depthBlurEffect(disparityImage: CIImage,
 						 matteImage: CIImage,
 						 hairImage: CIImage,
