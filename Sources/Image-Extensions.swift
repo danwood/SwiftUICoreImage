@@ -11,17 +11,16 @@ import CoreImage
 import SwiftUI
 
 public extension Image {
+    private static let context = CIContext(options: nil)
 
 	init(ciImage: CIImage) {
 
 #if canImport(UIKit)
 		// Note that making a UIImage and then using that to initialize the Image doesn't seem to work, but CGImage is fine.
-		// Possible optimization - store and reuse a CIContext
-		let context = CIContext(options: nil)
-		if let cgImage = context.createCGImage(ciImage, from: ciImage.extent) {
+		if let cgImage = Self.context.createCGImage(ciImage, from: ciImage.extent) {
 			self.init(cgImage, scale: 1.0, orientation: .up, label: Text(""))
 		} else {
-			self.init(systemName: "unknown")
+			self.init(systemName: "questionmark")
 		}
 #elseif canImport(AppKit)
 		// Looks like the NSCIImageRep is slightly better optimized for repeated runs,
