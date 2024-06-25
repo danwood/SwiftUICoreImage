@@ -24,12 +24,36 @@ private var unknownProperties: [String: [String: String]] = [:]
 func dumpFilters() {
 
 	// Load abstracts - this is scraped from the core image documentation website since any data source was not found.
+	/*
+
+	 Start with
+	 https://developer.apple.com/library/archive/documentation/GraphicsImaging/Reference/CoreImageFilterReference/
+
+	 auto-expand all symbols
+
+	 get HTML source
+	 in BBEdit change all instances (with Grep) of:
+	 +href="#//apple_ref/doc/filter/ci/([^"]+)"\n +title="([^"]+)">
+	 to:
+	 •"\1": "\2",
+
+	 Sort, extract lines starting with •
+	 Paste and preserve formatting into abstracts.json; fix the last line.
+	 Look for any little tweaks that may be needed.
+
+	 */
 	guard let url = Bundle.main.url(forResource: "abstracts", withExtension: "json"),
 		  let data = try? Data(contentsOf: url),
 		  let json = try? JSONSerialization.jsonObject(with: data, options: []),
 		  let abstractLookup: [String: String] = json as? [String: String]
 	else { print("// 🛑 can't load abstracts.json"); return }
 
+	/*
+	 A dictionary mapping filters (pretty function names) to override iOS versions  when we have noted that the core image functions (or occasionally parameters of them) required newer OSs.
+
+	 Not sure where we got this originally! We may need to update some of these.
+
+	 */
 	guard let url = Bundle.main.url(forResource: "FunctionMinima", withExtension: "json"),
 		  let data = try? Data(contentsOf: url),
 		  let json = try? JSONSerialization.jsonObject(with: data, options: []),
@@ -37,6 +61,13 @@ func dumpFilters() {
 	else { print("// 🛑 can't load FunctionMinima.json"); return }
 
 	// Load the 174 known documented filters; this leaves 56 filters/generators that don't have documentation
+	/*
+
+
+	 How do we know that these functions (and only these functions) have real documentation?
+
+
+	 */
 	guard let url = Bundle.main.url(forResource: "DocumentedFunctions", withExtension: "json"),
 		  let data = try? Data(contentsOf: url),
 		  let json = try? JSONSerialization.jsonObject(with: data, options: []),
