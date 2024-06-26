@@ -34,9 +34,9 @@
 		"zoom" : "A value that controls by how much to zoom the inset image"
 	},
 	"CIEdgePreserveUpsampleFilter" : {
-		"lumaSigma" : "A value that specifies the influence of the input imageâs luma information on the upsampling operation.",
+		"lumaSigma" : "A value that specifies the influence of the input image's luma information on the upsampling operation.",
 		"smallImage" : "The image that the filter upsamples.",
-		"spatialSigma" : "A value that specifies the influence of the input imageâs spatial information on the upsampling operation."
+		"spatialSigma" : "A value that specifies the influence of the input image's spatial information on the upsampling operation."
 	},
 	"CIGuidedFilter" : {
 		"_NOTE" : "THIS WAS GLEANED FROM DESCRIPTIONS OF THIS FILTER IN GENERAL; NO OFFICIAL APPLE DOCUMENTATION FOUND",

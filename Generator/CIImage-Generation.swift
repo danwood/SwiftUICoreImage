@@ -455,7 +455,7 @@ private func outputIdentityGuards(_ filter: CIFilter) {
 				guard hasReasonableDefaultValue(identityValue, attributeType: attributeType, inputName: inputName)
 				else { return nil }
 
-				let identityValueFormatted: String = formatSmart(identityValue, attributeType: attributeType, inputName: inputName)
+				let identityValueFormatted: String = formatSmart(identityValue, attributeType: attributeType, inputName: inputName, filterName: filterName)
 				return "\(inputName) != \(identityValueFormatted)"
 			}
 			.joined(separator: " || ")
@@ -502,6 +502,11 @@ private func outputImageFunction(_ filter: CIFilter, isGenerator: Bool) {
 				}
 			}
 			if !(filterFunction == "kMeans" && inputName == "count"),	// this function's parameter wants an integer so leave alone
+			   !(filterFunction == "cannyEdgeDetector" && inputName == "hysteresisPasses"),
+			   !(filterFunction == "personSegmentation" && inputName == "qualityLevel"),
+
+				// TODO how to get rid of these special NEGATIVE cases? ^^^
+
 				attributeType == kCIAttributeTypeInteger || attributeType == kCIAttributeTypeCount {
 				return "    filter.\(inputName) = Float(\(inputName))"	// We pass in Int, but function wants a Float
 			}
@@ -652,7 +657,7 @@ private func parameterStatement(inputKey: String, inputAttributes: [String: AnyO
 	if let defaultValue: AnyObject = inputAttributes[kCIAttributeDefault] {
 
 		if hasReasonableDefaultValue(defaultValue, attributeType: attributeType, inputName: inputName) {
-			let defaultValueString = formatSmart(defaultValue, attributeType: attributeType, inputName: inputName)
+			let defaultValueString = formatSmart(defaultValue, attributeType: attributeType, inputName: inputName, filterName: filterName)
 			if !defaultValueString.isEmpty {
 				defaultStatement = " = \(defaultValueString)"
 			}
@@ -711,7 +716,7 @@ private func hasReasonableDefaultValue(_ value: Any, attributeType: String?, inp
 }
 
 
-private func formatSmart(_ value: Any, attributeType: String?, inputName: String) -> String {
+private func formatSmart(_ value: Any, attributeType: String?, inputName: String, filterName: String?) -> String {
 	var result: String = ""
 	if let number = value as? NSNumber {
 		if attributeType == kCIAttributeTypeBoolean || inputName == "extrapolate" { // Hack - missing info
@@ -749,7 +754,8 @@ private func formatSmart(_ value: Any, attributeType: String?, inputName: String
 		transformIdentity = NSAffineTransform()
 #endif
 
-		if transform == transformIdentity {
+		// Special case these filters to default to identity. Their default values are weird!
+		if transform == transformIdentity || filterName == "CIAffineClamp" || filterName == "CIAffineTile" {
 			result = "CGAffineTransform.identity"
 		} else {
 #if canImport(UIKit)
