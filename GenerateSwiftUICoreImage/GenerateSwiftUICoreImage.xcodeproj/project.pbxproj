@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE67B0D12C2C82A4003E692B /* docLookup.json in Resources */ = {isa = PBXBuildFile; fileRef = CE67B0D02C2C82A4003E692B /* docLookup.json */; };
 		CE9A3AC02C2B75090085C241 /* GenerateSwiftUICoreImageApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9A3ABF2C2B75090085C241 /* GenerateSwiftUICoreImageApp.swift */; };
 		CE9A3AC22C2B75090085C241 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9A3AC12C2B75090085C241 /* ContentView.swift */; };
 		CE9A3AE82C2B75260085C241 /* abstracts.json in Resources */ = {isa = PBXBuildFile; fileRef = CE9A3AD12C2B75260085C241 /* abstracts.json */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE67B0D02C2C82A4003E692B /* docLookup.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = docLookup.json; sourceTree = "<group>"; };
 		CE9A3ABC2C2B75090085C241 /* GenerateSwiftUICoreImage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GenerateSwiftUICoreImage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE9A3ABF2C2B75090085C241 /* GenerateSwiftUICoreImageApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateSwiftUICoreImageApp.swift; sourceTree = "<group>"; };
 		CE9A3AC12C2B75090085C241 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 		CE9A3AD62C2B75260085C241 /* Generator */ = {
 			isa = PBXGroup;
 			children = (
+				CE67B0D02C2C82A4003E692B /* docLookup.json */,
 				CE9A3AD12C2B75260085C241 /* abstracts.json */,
 				CE9A3AD22C2B75260085C241 /* CIImage-Generation.swift */,
 				CE9A3AD42C2B75260085C241 /* FunctionMinima.json */,
@@ -155,6 +158,7 @@
 				CE9A3AE82C2B75260085C241 /* abstracts.json in Resources */,
 				CE9A3AEC2C2B75260085C241 /* MissingParameterDocumentation.json in Resources */,
 				CE9A3AEB2C2B75260085C241 /* FunctionMinima.json in Resources */,
+				CE67B0D12C2C82A4003E692B /* docLookup.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

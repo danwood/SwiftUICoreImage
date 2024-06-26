@@ -24,6 +24,55 @@ private var unknownProperties: [String: [String: String]] = [:]
 func dumpFilters() {
 
 	/*
+
+	 New documentation base found at
+	 https://developer.apple.com/documentation/coreimage
+	 or
+	 https://developer.apple.com/documentation/coreimage/cifilter
+
+	 15 categories. Open each in tab. Select all, copy, paste into rich text TextEdit doc. Save as HTML.
+
+	 Copy this source, then in terminal, grep out the lines I want:
+
+	 pbpaste | grep 'class func' | grep 'any CIFilter ' | sort | uniq > ~/Desktop/AllFunctions.html
+
+	 (There are a few duplicated functions; gonna not worry about right now)
+
+	 In BBEdit, remove the stuff before the
+
+	 From that, in BBEdit, grep replace all lines:
+
+	 ^.+<a href="https://developer.apple.com/documentation/coreimage/cifilter/([^"]+)">class func <span class="[^"]+">([^>]+)</span><span class="[^"]+">\(\) -&gt; any CIFilter &amp; ([^>]+)</span></a></span></p>
+	 to:
+
+	 "\2": "\1",
+
+	 and then…
+
+	 ^.+<a href="https://developer.apple.com/documentation/coreimage/cifilter/([^"]+)">class func ([^(]+).+? any CIFilter &amp; ([^<]+)<span class="[^"]+"></span></a></span></p>
+
+	 to:
+
+	 "\2": "\1",
+
+
+	 Save as RawLookup.json to Desktop
+
+	 cat ~/Desktop/RawLookup.json | sort | uniq > ~/Desktop/docLookup.json
+
+	 Now edit to include { and } and remove last comma
+
+	 This file lets us know the documentation URL fragment to append to https://developer.apple.com/documentation/coreimage/cifilter/
+	 */
+
+	guard let url = Bundle.main.url(forResource: "docLookup", withExtension: "json"),
+		  let data = try? Data(contentsOf: url),
+		  let json = try? JSONSerialization.jsonObject(with: data, options: []),
+		  let docLookup: [String: String] = json as? [String: String]
+	else { print("// 🛑 can't load docLookup.json"); return }
+
+	
+	/*
 	 Load abstracts for all functions that are documented on the web
 
 	 Start with
@@ -104,7 +153,7 @@ func dumpFilters() {
 	print("//")
 	for filterName in imageToImage.keys.sorted() {
 		guard let filter: CIFilter = imageToImage[filterName] else { continue }
-		outputImageToImage(filter, abstractLookup: abstractLookup, functionMinima: functionMinima)
+		outputImageToImage(filter, abstractLookup: abstractLookup, docLookup: docLookup, functionMinima: functionMinima)
 	}
 	print("")
 	print("//")
@@ -112,7 +161,7 @@ func dumpFilters() {
 	print("//")
 	for filterName in generators.keys.sorted() {
 		guard let filter: CIFilter = generators[filterName] else { continue }
-		outputGeneratorFilter(filter, abstractLookup: abstractLookup, functionMinima: functionMinima)
+		outputGeneratorFilter(filter, abstractLookup: abstractLookup, docLookup: docLookup, functionMinima: functionMinima)
 	}
 
 	// End of class extension
@@ -132,7 +181,7 @@ func dumpUnknownProperties() {
 	}
 }
 
-private func outputGeneratorFilter(_ filter: CIFilter, abstractLookup: [String: String], functionMinima: [String: String]) {
+private func outputGeneratorFilter(_ filter: CIFilter, abstractLookup: [String: String], docLookup: [String: String], functionMinima: [String: String]) {
 	let filterName = filter.name
 
 	let filtersThatAlreadyHaveInitializer: [String: String] = ["CIConstantColorGenerator": "init(color: CIColor)"]
@@ -142,12 +191,12 @@ private func outputGeneratorFilter(_ filter: CIFilter, abstractLookup: [String: 
 		return
 	}
 
-	outputDocumentation(filter, isGenerator: true, abstractLookup: abstractLookup)
+	outputDocumentation(filter, isGenerator: true, abstractLookup: abstractLookup, docLookup: docLookup)
 	outputOSVersion(filter, functionMinima: functionMinima)
 	outputImageFunction(filter, isGenerator: true)
 }
 
-private func outputDocumentation(_ filter: CIFilter, isGenerator: Bool, abstractLookup: [String: String]) {
+private func outputDocumentation(_ filter: CIFilter, isGenerator: Bool, abstractLookup: [String: String], docLookup: [String: String]) {
 
 	let filterName = filter.name
 	let description: String? = CIFilter.localizedDescription(forFilterName: filterName)
@@ -167,10 +216,46 @@ private func outputDocumentation(_ filter: CIFilter, isGenerator: Bool, abstract
 		}
 		print("///")
 	}
-	if let documentationURL {
-		if nil == abstractLookup[filterName] {
-			print("/// ⚠️ No Apple Documentation available for '\(filterName)'")
+
+	// Convert, for example, CIAccordionFoldTransition to accordionFoldTransition
+	let functionFilterNameCapitalized = filterName.dropFirst(2)
+	var functionFilterName = (functionFilterNameCapitalized.first?.lowercased() ?? "") + functionFilterNameCapitalized.dropFirst()
+
+	let manualNameLookup = ["CICMYKHalftone": "cmykHalftone", "CIPDF417BarcodeGenerator": "pdf417BarcodeGenerator", "CIQRCodeGenerator": "qrCodeGenerator"]
+	if let foundManualLookup = manualNameLookup[filterName] {
+		functionFilterName = foundManualLookup
+	}
+
+	let manualURLLookup = ["CIAreaBoundsRed": "4401847-areaboundsred",
+						   "CIMaximumScaleTransform": "4401870-maximumscaletransform",
+						   "CIToneMapHeadroom": "4401878-tonemapheadroom"]
+
+	let newDocURLFragment: String?
+	if let manualURLFragment = manualURLLookup[filterName] {
+		newDocURLFragment = manualURLFragment
+	} else {
+		newDocURLFragment = docLookup[functionFilterName]
+	}
+
+	if let newDocURLFragment {
+		print("/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/\(newDocURLFragment))")
+	} else {
+		let withoutSuffix = functionFilterName.replacingOccurrences(of: "Filter", with: "", options: [.backwards, .anchored])
+		if let newDocURLFragment = docLookup[withoutSuffix] {
+			print("/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/\(newDocURLFragment))")
 		} else {
+			print("/// ⚠️ No new documentation available for \(filterName)")
+		}
+	}
+	/*
+	 TOTALLY UNKNOWN AT THIS TIME.  Apparently they are all iOS 13 and macOS 10.15
+	 /// ⚠️ CIAreaAlphaWeightedHistogram
+	 /// ⚠️ CICameraCalibrationLensCorrection
+	 /// ⚠️ CIGuidedFilter
+
+	 */
+	if let documentationURL {
+		if nil != abstractLookup[filterName] {
 			let urlFragment: String
 #if canImport(UIKit)
 			urlFragment = "http://developer.apple.com/library/ios"
@@ -185,7 +270,7 @@ private func outputDocumentation(_ filter: CIFilter, isGenerator: Bool, abstract
 
 
 
-			print("/// [Documentation](\(urlString))")
+			print("/// [Classic Documentation](\(urlString))")
 		}
 
 		// Special cases for documentation
@@ -521,7 +606,7 @@ private func outputImageFunction(_ filter: CIFilter, isGenerator: Bool) {
 	print("}")
 }
 
-private func outputImageToImage(_ filter: CIFilter, abstractLookup: [String: String], functionMinima: [String: String]) {
+private func outputImageToImage(_ filter: CIFilter, abstractLookup: [String: String], docLookup: [String: String], functionMinima: [String: String]) {
 
 	let filterName = filter.name
 
@@ -529,15 +614,18 @@ private func outputImageToImage(_ filter: CIFilter, abstractLookup: [String: Str
 	let filtersThatAlreadyHaveImageExtension: [String: String] = ["CIAffineTransform": "transformed(by: CGAffineTransform)",
 																  "CICrop": "cropped(to: CGRect)",
 																  "CIClamp": "clamped(to: CGRect)",
-																  "CISampleNearest": "samplingNearest()"]
-
+																  "CISampleNearest": "samplingNearest()",
+																  // https://developer.apple.com/documentation/coreimage/ciimage/2867429-samplingnearest
+	"CIDepthBlurEffect": "depthBlurEffectFilter(for:disparityImage:portraitEffectsMatte:hairSemanticSegmentation:glassesMatte:gainMap:orientation:options:)"
+																  // https://developer.apple.com/documentation/coreimage/cicontext#4375374
+]
 	if let existingFunction: String = filtersThatAlreadyHaveImageExtension[filterName] {
 		print("")
-		print("// NOTE: \(filterName) already has a CIImage method: func \(existingFunction) -> CIImage")
+		print("// ℹ️ \(filterName) already has a CIImage method: func \(existingFunction) -> CIImage")
 		print("")
 		return
 	}
-	outputDocumentation(filter, isGenerator: false, abstractLookup: abstractLookup)
+	outputDocumentation(filter, isGenerator: false, abstractLookup: abstractLookup, docLookup: docLookup)
 	outputOSVersion(filter, functionMinima: functionMinima)
 
 	if filtersWithoutSwiftAPI.contains(filterName) {
@@ -610,7 +698,7 @@ private func parameterStatement(inputKey: String, inputAttributes: [String: AnyO
 		{
 			convertedClass = "Float"
 		} else {
-			print("\n// 🛑 unknown number type \(inputName): \(attributeType)")
+			print("\n// 🛑 unknown number type \(inputName): \(attributeType ?? "")")
 			convertedClass = "Float"		// seems to be when no type is specified
 		}
 	case "CIVector":
@@ -638,14 +726,14 @@ private func parameterStatement(inputKey: String, inputAttributes: [String: AnyO
 			convertedClass = "CGColorSpace"
 		} else {
 			convertedClass = attributeClass		// Unexpected case
-			print("\n// 🛑 unknown attributeClass \(attributeClass) with \(inputName), \(attributeType)")
+			print("\n// 🛑 unknown attributeClass \(attributeClass) with \(inputName), \(attributeType ?? "")")
 		}
 	case "NSValue":
 		if attributeType == kCIAttributeTypeTransform {
 			convertedClass = "CGAffineTransform"
 		} else {
 			convertedClass = attributeClass	// Unexpected case
-			print("\n// 🛑 unknown attributeClass \(attributeClass) with \(inputName), \(attributeType)")
+			print("\n// 🛑 unknown attributeClass \(attributeClass) with \(inputName), \(attributeType ?? "")")
 		}
 	default:
 		// Other cases where the class is the same: CIImage, CIColor, etc.
