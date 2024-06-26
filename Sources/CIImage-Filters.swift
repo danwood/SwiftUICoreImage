@@ -8,7 +8,6 @@ import CoreImage.CIFilterBuiltins
 import CoreML
 import AVFoundation
 
-@available(iOS 13, macOS 10.15, macCatalyst 13, *)
 public extension CIImage {
 
 	//
@@ -157,7 +156,7 @@ public extension CIImage {
 	///   - scale: The scale value to use for the histogram values. If the scale is 1.0, then the bins in the resulting image will add up to 1.0. (0...)
 	///   - count: The number of bins for the histogram. This value will determine the width of the output image. (1...2048)
 	///   - active: should this filter be applied
-	/// - Returns: a 1D image (`inputCount` wide by one pixel high) that contains the component-wise histogram computed for the specified rectangular area, or identity if `active` is false
+	/// - Returns: a 1D image (inputCount wide by one pixel high) that contains the component-wise histogram computed for the specified rectangular area, or identity if `active` is false
 	@available(iOS 14, macOS 11.0, *)
 	func areaHistogram(extent: CGRect, scale: Float = 1, count: Int = 64, active: Bool = true) -> CIImage {
 		guard active else { return self }
@@ -690,7 +689,7 @@ public extension CIImage {
 	///   - useInverseLookupTable: Boolean value used to select the Look Up Table from the AVCameraCalibrationData.
 	///   - active: should this filter be applied
 	/// - Returns: processed new `CIImage`, or identity if `active` is false
-	@available(iOS 13, macOS 10.15, macCatalyst 14, *)
+	@available(iOS 13, macOS 10.15, *)
 	func cameraCalibrationLensCorrection(avcameracalibrationdata: AVCameraCalibrationData,
 										 useInverseLookupTable: Bool = false,
 										 active: Bool = true) -> CIImage {
@@ -702,6 +701,42 @@ public extension CIImage {
 			"inputAVCameraCalibrationData": avcameracalibrationdata,
 			"inputUseInverseLookUpTable": useInverseLookupTable,
 		]) else { return self }
+		return filter.outputImage ?? CIImage.empty()
+	}
+
+	/// Canny Edge Detector
+	///
+	/// Applies the Canny Edge Detection algorithm to an image.
+	///
+	/// ⚠️ No Apple Documentation available for 'CICannyEdgeDetector'
+	///
+	/// Categories: Stylize, Video, Still Image, High Dynamic Range, Built-In
+	///
+	///
+	/// - Parameters:
+	///   - gaussianSigma: The gaussian sigma of blur to apply to the image to reduce high-frequency noise. (0...)
+	///   - perceptual: Specifies whether the edge thresholds should be computed in a perceptual color space.
+	///   - thresholdHigh: The threshold that determines if gradient magnitude is a strong edge. (0...)
+	///   - thresholdLow: The threshold that determines if gradient magnitude is a weak edge. (0...)
+	///   - hysteresisPasses: The number of hysteresis passes to apply to promote weak edge pixels. (0...20)
+	///   - active: should this filter be applied
+	/// - Returns: processed new `CIImage`, or identity if `active` is false
+	@available(iOS 17, macOS 14.0, *)
+	func cannyEdgeDetector(gaussianSigma: Float = 1.6,
+						   perceptual: Bool = false,
+						   thresholdHigh: Float = 0.05,
+						   thresholdLow: Float = 0.02,
+						   hysteresisPasses: Int,
+						   active: Bool = true) -> CIImage {
+		guard active else { return self }
+
+		let filter = CIFilter.cannyEdgeDetector() // CICannyEdgeDetector
+		filter.inputImage = self
+		filter.gaussianSigma = gaussianSigma
+		filter.perceptual = perceptual
+		filter.thresholdHigh = thresholdHigh
+		filter.thresholdLow = thresholdLow
+		filter.hysteresisPasses = hysteresisPasses
 		return filter.outputImage ?? CIImage.empty()
 	}
 
@@ -1766,7 +1801,7 @@ public extension CIImage {
 	///   - shape: UNKNOWN
 	///   - active: should this filter be applied
 	/// - Returns: processed new `CIImage`, or identity if `active` is false
-	@available(iOS 13, macOS 10.15, macCatalyst 14, *)
+	@available(iOS 13, macOS 10.15, *)
 	func depthBlurEffect(disparityImage: CIImage,
 						 matteImage: CIImage,
 						 hairImage: CIImage,
@@ -2168,8 +2203,8 @@ public extension CIImage {
 	///
 	/// - Parameters:
 	///   - smallImage: The image that the filter upsamples.
-	///   - spatialSigma: A value that specifies the influence of the input image’s spatial information on the upsampling operation. (0...5)
-	///   - lumaSigma: A value that specifies the influence of the input image’s luma information on the upsampling operation. (0...1)
+	///   - spatialSigma: A value that specifies the influence of the input image's spatial information on the upsampling operation. (0...5)
+	///   - lumaSigma: A value that specifies the influence of the input image's luma information on the upsampling operation. (0...1)
 	///   - active: should this filter be applied
 	/// - Returns: processed new `CIImage`, or identity if `active` is false
 	@available(iOS 13, macOS 10.15, *)
@@ -4028,7 +4063,7 @@ public extension CIImage {
 	///
 	///
 	/// - Parameters:
-	///   - qualityLevel: Determines the size and quality of the resulting segmentation mask. The value can be a number where 0 is accurate, 1 is balanced, and 2 is fast.
+	///   - qualityLevel: Determines the size and quality of the resulting segmentation mask. The value can be a number where 0 is accurate, 1 is balanced, and 2 is fast. (0...2)
 	///   - active: should this filter be applied
 	/// - Returns: processed new `CIImage`, or identity if `active` is false
 	@available(iOS 15, macOS 12.0, *)
@@ -4213,19 +4248,20 @@ public extension CIImage {
 	///
 	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIPhotoEffectChrome)
 	///
-	/// Categories: Color Effect, Video, Interlaced, Non-Square Pixels, Still Image, Built-In, CICategoryXMPSerializable
+	/// Categories: Color Effect, Video, Interlaced, Non-Square Pixels, Still Image, High Dynamic Range, Built-In, CICategoryXMPSerializable
 	///
 	///
 	/// - Parameters:
+	///   - extrapolate: If true, then the color effect will be extrapolated if the input image contains RGB component values outside the range 0.0 to 1.0.
 	///   - active: should this filter be applied
 	/// - Returns: processed new `CIImage`, or identity if `active` is false
 	@available(iOS 13, macOS 10.15, *)
-	func photoEffectChrome(active: Bool = true) -> CIImage {
+	func photoEffectChrome(extrapolate: Bool = false, active: Bool = true) -> CIImage {
 		guard active else { return self }
 
 		let filter = CIFilter.photoEffectChrome() // CIPhotoEffectChrome
 		filter.inputImage = self
-
+		filter.extrapolate = extrapolate
 		return filter.outputImage ?? CIImage.empty()
 	}
 
@@ -4235,19 +4271,20 @@ public extension CIImage {
 	///
 	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIPhotoEffectFade)
 	///
-	/// Categories: Color Effect, Video, Interlaced, Non-Square Pixels, Still Image, Built-In, CICategoryXMPSerializable
+	/// Categories: Color Effect, Video, Interlaced, Non-Square Pixels, Still Image, High Dynamic Range, Built-In, CICategoryXMPSerializable
 	///
 	///
 	/// - Parameters:
+	///   - extrapolate: If true, then the color effect will be extrapolated if the input image contains RGB component values outside the range 0.0 to 1.0.
 	///   - active: should this filter be applied
 	/// - Returns: processed new `CIImage`, or identity if `active` is false
 	@available(iOS 13, macOS 10.15, *)
-	func photoEffectFade(active: Bool = true) -> CIImage {
+	func photoEffectFade(extrapolate: Bool = false, active: Bool = true) -> CIImage {
 		guard active else { return self }
 
 		let filter = CIFilter.photoEffectFade() // CIPhotoEffectFade
 		filter.inputImage = self
-
+		filter.extrapolate = extrapolate
 		return filter.outputImage ?? CIImage.empty()
 	}
 
@@ -4257,19 +4294,20 @@ public extension CIImage {
 	///
 	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIPhotoEffectInstant)
 	///
-	/// Categories: Color Effect, Video, Interlaced, Non-Square Pixels, Still Image, Built-In, CICategoryXMPSerializable
+	/// Categories: Color Effect, Video, Interlaced, Non-Square Pixels, Still Image, High Dynamic Range, Built-In, CICategoryXMPSerializable
 	///
 	///
 	/// - Parameters:
+	///   - extrapolate: If true, then the color effect will be extrapolated if the input image contains RGB component values outside the range 0.0 to 1.0.
 	///   - active: should this filter be applied
 	/// - Returns: processed new `CIImage`, or identity if `active` is false
 	@available(iOS 13, macOS 10.15, *)
-	func photoEffectInstant(active: Bool = true) -> CIImage {
+	func photoEffectInstant(extrapolate: Bool = false, active: Bool = true) -> CIImage {
 		guard active else { return self }
 
 		let filter = CIFilter.photoEffectInstant() // CIPhotoEffectInstant
 		filter.inputImage = self
-
+		filter.extrapolate = extrapolate
 		return filter.outputImage ?? CIImage.empty()
 	}
 
@@ -4279,19 +4317,20 @@ public extension CIImage {
 	///
 	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIPhotoEffectMono)
 	///
-	/// Categories: Color Effect, Video, Interlaced, Non-Square Pixels, Still Image, Built-In, CICategoryXMPSerializable
+	/// Categories: Color Effect, Video, Interlaced, Non-Square Pixels, Still Image, High Dynamic Range, Built-In, CICategoryXMPSerializable
 	///
 	///
 	/// - Parameters:
+	///   - extrapolate: If true, then the color effect will be extrapolated if the input image contains RGB component values outside the range 0.0 to 1.0.
 	///   - active: should this filter be applied
 	/// - Returns: processed new `CIImage`, or identity if `active` is false
 	@available(iOS 13, macOS 10.15, *)
-	func photoEffectMono(active: Bool = true) -> CIImage {
+	func photoEffectMono(extrapolate: Bool = false, active: Bool = true) -> CIImage {
 		guard active else { return self }
 
 		let filter = CIFilter.photoEffectMono() // CIPhotoEffectMono
 		filter.inputImage = self
-
+		filter.extrapolate = extrapolate
 		return filter.outputImage ?? CIImage.empty()
 	}
 
@@ -4301,19 +4340,20 @@ public extension CIImage {
 	///
 	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIPhotoEffectNoir)
 	///
-	/// Categories: Color Effect, Video, Interlaced, Non-Square Pixels, Still Image, Built-In, CICategoryXMPSerializable
+	/// Categories: Color Effect, Video, Interlaced, Non-Square Pixels, Still Image, High Dynamic Range, Built-In, CICategoryXMPSerializable
 	///
 	///
 	/// - Parameters:
+	///   - extrapolate: If true, then the color effect will be extrapolated if the input image contains RGB component values outside the range 0.0 to 1.0.
 	///   - active: should this filter be applied
 	/// - Returns: processed new `CIImage`, or identity if `active` is false
 	@available(iOS 13, macOS 10.15, *)
-	func photoEffectNoir(active: Bool = true) -> CIImage {
+	func photoEffectNoir(extrapolate: Bool = false, active: Bool = true) -> CIImage {
 		guard active else { return self }
 
 		let filter = CIFilter.photoEffectNoir() // CIPhotoEffectNoir
 		filter.inputImage = self
-
+		filter.extrapolate = extrapolate
 		return filter.outputImage ?? CIImage.empty()
 	}
 
@@ -4323,19 +4363,20 @@ public extension CIImage {
 	///
 	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIPhotoEffectProcess)
 	///
-	/// Categories: Color Effect, Video, Interlaced, Non-Square Pixels, Still Image, Built-In, CICategoryXMPSerializable
+	/// Categories: Color Effect, Video, Interlaced, Non-Square Pixels, Still Image, High Dynamic Range, Built-In, CICategoryXMPSerializable
 	///
 	///
 	/// - Parameters:
+	///   - extrapolate: If true, then the color effect will be extrapolated if the input image contains RGB component values outside the range 0.0 to 1.0.
 	///   - active: should this filter be applied
 	/// - Returns: processed new `CIImage`, or identity if `active` is false
 	@available(iOS 13, macOS 10.15, *)
-	func photoEffectProcess(active: Bool = true) -> CIImage {
+	func photoEffectProcess(extrapolate: Bool = false, active: Bool = true) -> CIImage {
 		guard active else { return self }
 
 		let filter = CIFilter.photoEffectProcess() // CIPhotoEffectProcess
 		filter.inputImage = self
-
+		filter.extrapolate = extrapolate
 		return filter.outputImage ?? CIImage.empty()
 	}
 
@@ -4345,19 +4386,20 @@ public extension CIImage {
 	///
 	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIPhotoEffectTonal)
 	///
-	/// Categories: Color Effect, Video, Interlaced, Non-Square Pixels, Still Image, Built-In, CICategoryXMPSerializable
+	/// Categories: Color Effect, Video, Interlaced, Non-Square Pixels, Still Image, High Dynamic Range, Built-In, CICategoryXMPSerializable
 	///
 	///
 	/// - Parameters:
+	///   - extrapolate: If true, then the color effect will be extrapolated if the input image contains RGB component values outside the range 0.0 to 1.0.
 	///   - active: should this filter be applied
 	/// - Returns: processed new `CIImage`, or identity if `active` is false
 	@available(iOS 13, macOS 10.15, *)
-	func photoEffectTonal(active: Bool = true) -> CIImage {
+	func photoEffectTonal(extrapolate: Bool = false, active: Bool = true) -> CIImage {
 		guard active else { return self }
 
 		let filter = CIFilter.photoEffectTonal() // CIPhotoEffectTonal
 		filter.inputImage = self
-
+		filter.extrapolate = extrapolate
 		return filter.outputImage ?? CIImage.empty()
 	}
 
@@ -4367,19 +4409,20 @@ public extension CIImage {
 	///
 	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIPhotoEffectTransfer)
 	///
-	/// Categories: Color Effect, Video, Interlaced, Non-Square Pixels, Still Image, Built-In, CICategoryXMPSerializable
+	/// Categories: Color Effect, Video, Interlaced, Non-Square Pixels, Still Image, High Dynamic Range, Built-In, CICategoryXMPSerializable
 	///
 	///
 	/// - Parameters:
+	///   - extrapolate: If true, then the color effect will be extrapolated if the input image contains RGB component values outside the range 0.0 to 1.0.
 	///   - active: should this filter be applied
 	/// - Returns: processed new `CIImage`, or identity if `active` is false
 	@available(iOS 13, macOS 10.15, *)
-	func photoEffectTransfer(active: Bool = true) -> CIImage {
+	func photoEffectTransfer(extrapolate: Bool = false, active: Bool = true) -> CIImage {
 		guard active else { return self }
 
 		let filter = CIFilter.photoEffectTransfer() // CIPhotoEffectTransfer
 		filter.inputImage = self
-
+		filter.extrapolate = extrapolate
 		return filter.outputImage ?? CIImage.empty()
 	}
 
@@ -4755,6 +4798,28 @@ public extension CIImage {
 		filter.center = center
 		filter.angle = angle
 		filter.width = width
+		return filter.outputImage ?? CIImage.empty()
+	}
+
+	/// Sobel Gradients
+	///
+	/// Applies multichannel 3 by 3 Sobel gradient filter to an image. The resulting image has maximum horizontal gradient in the red channel and the maximum vertical gradient in the green channel. The gradient values can be positive or negative.
+	///
+	/// ⚠️ No Apple Documentation available for 'CISobelGradients'
+	///
+	/// Categories: Stylize, Video, Still Image, High Dynamic Range, Built-In
+	///
+	///
+	/// - Parameters:
+	///   - active: should this filter be applied
+	/// - Returns: processed new `CIImage`, or identity if `active` is false
+	@available(iOS 17, macOS 14.0, *)
+	func sobelGradients(active: Bool = true) -> CIImage {
+		guard active else { return self }
+
+		let filter = CIFilter.sobelGradients() // CISobelGradients
+		filter.inputImage = self
+
 		return filter.outputImage ?? CIImage.empty()
 	}
 
@@ -5578,6 +5643,29 @@ public extension CIImage {
 		return filter.outputImage ?? CIImage.empty()
 	}
 
+	/// Blurred Rectangle Generator
+	///
+	/// Generates a blurred rectangle image with the specified extent, blur sigma, and color.
+	///
+	/// ⚠️ No Apple Documentation available for 'CIBlurredRectangleGenerator'
+	///
+	/// Categories: Generator, Still Image, High Dynamic Range, Built-In
+	///
+	///
+	/// - Parameters:
+	///   - extent: A rectangle that defines the extent of the effect.
+	///   - sigma: The sigma for a gaussian blur. (0...)
+	///   - color: A color.
+	/// - Returns: a blurred rectangle image with the specified extent, blur sigma, and color
+	@available(iOS 17, macOS 14.0, *)
+	static func blurredRectangleGenerator(extent: CGRect, sigma: Float, color: CIColor = CIColor.white) -> CIImage {
+		let filter = CIFilter.blurredRectangleGenerator() // CIBlurredRectangleGenerator
+		filter.extent = extent
+		filter.sigma = sigma
+		filter.color = color
+		return filter.outputImage ?? CIImage.empty()
+	}
+
 	/// Checkerboard
 	///
 	/// Generates a pattern of squares of alternating colors. You can specify the size, colors, and the sharpness of the pattern.
@@ -5925,6 +6013,34 @@ public extension CIImage {
 		filter.extent = extent
 		filter.radius = radius
 		filter.color = color
+		return filter.outputImage ?? CIImage.empty()
+	}
+
+	/// Rounded Rectangle Stroke Generator
+	///
+	/// Generates a rounded rectangle stroke image with the specified extent, corner radius, stroke width, and color.
+	///
+	/// ⚠️ No Apple Documentation available for 'CIRoundedRectangleStrokeGenerator'
+	///
+	/// Categories: Generator, Still Image, High Dynamic Range, Built-In
+	///
+	///
+	/// - Parameters:
+	///   - extent: A rectangle that defines the extent of the effect.
+	///   - radius: The distance from the center of the effect. (0...)
+	///   - color: A color.
+	///   - width: The width in pixels of the effect. (0...)
+	/// - Returns: a rounded rectangle stroke image with the specified extent, corner radius, stroke width, and color
+	@available(iOS 17, macOS 14.0, *)
+	static func roundedRectangleStrokeGenerator(extent: CGRect,
+												radius: Float,
+												color: CIColor = CIColor.white,
+												width: Float) -> CIImage {
+		let filter = CIFilter.roundedRectangleStrokeGenerator() // CIRoundedRectangleStrokeGenerator
+		filter.extent = extent
+		filter.radius = radius
+		filter.color = color
+		filter.width = width
 		return filter.outputImage ?? CIImage.empty()
 	}
 
