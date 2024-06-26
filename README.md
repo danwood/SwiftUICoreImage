@@ -154,4 +154,29 @@ That's it!
 
 ---
 
-Please file an issue or pull request if you can think of an improvement to the code or documentation of the generated filters, or find any other helpful utilities for manipulating Core Images in this toolkit!
+## Future Improvements
+
+Rather than generating repetitive code, it would be nice to define some macros that expand to the repetitive code!
+The advantage of this is that one could just import the macro package and just define only the filters they want,
+rather than defining all 200+ mostly-unused filters.
+
+[Apparently](https://forums.swift.org/t/macros-attached-macros-to-methods-and-functions/65531/6) 
+this would require [Function Body Macros](https://github.com/swiftlang/swift-evolution/blob/main/proposals/0415-function-body-macros.md) 
+which are not available in Swift 5.x but might make it into Swift 6.0.
+
+Ideally we would specify something like this:
+```
+ 	@CoreImageExtension
+	func pixellate(center: CGPoint, scale: Float, active: Bool = true) -> CIImage
+```
+
+And this would fill in the body with some code that does the following:
+ * Guard statement to return self if active flag is false (or other inert modifier; maybe we'd have to indicate which parameter is this?)
+ * Create built-in CIFilter object based off of name of the function being expanded
+ * Set all the parameters as specified in the function parameters. Maybe need some way to indicate parameters that need to be cast to another type
+ * return the outputImage from the filter
+
+---
+
+Please file an issue or pull request if you can think of an improvement to the code or documentation of the generated filters, 
+or find any other helpful utilities for manipulating Core Images in this toolkit!
