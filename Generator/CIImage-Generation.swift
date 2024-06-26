@@ -310,6 +310,7 @@ private func outputDocumentation(_ filter: CIFilter, isGenerator: Bool, abstract
 		let displayName: String = attributes[kCIAttributeDisplayName] as? String ?? ""	// space-separated
 		let longerInput: String = parameterName(displayName: displayName, filterName: filterName)
 		var description:  String = attributes[kCIAttributeDescription] as? String ?? "[unknown]"
+
 		if nil == attributes[kCIAttributeDescription] {
 			
 			// TEMPORARY CODE TO COLLECT UNKNOWN PROPERTIES

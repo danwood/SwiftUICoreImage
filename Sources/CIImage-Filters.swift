@@ -605,7 +605,7 @@ public extension CIImage {
 	///   - radius: The radius determines how many pixels are used to create the blur. The larger the radius, the blurrier the result. (0...500)
 	///   - ringAmount: The amount of extra emphasis at the ring of the bokeh. (0...1)
 	///   - ringSize: The size of extra emphasis at the ring of the bokeh. (0...0.2)
-	///   - softness: The softness of the bokeh effect. (0...10)
+	///   - softness: The softness of the bokeh effect (0...10)
 	///   - active: should this filter be applied
 	/// - Returns: processed new `CIImage`, or identity if `active` is false
 	@available(iOS 13, macOS 10.15, *)
@@ -1880,11 +1880,11 @@ public extension CIImage {
 	///
 	///
 	/// - Parameters:
-	///   - point0: The first point in the focused region of the output image.
-	///   - point1: The second point in the focused region of the output image.
+	///   - point0: A set of coordinates marking the first point to be focused on
+	///   - point1: A set of coordinates marking the second point to be focused on
 	///   - saturation: The amount to adjust the saturation. (0...)
-	///   - unsharpMaskRadius: The radius of the unsharp mask effect applied to the in-focus area. (0...)
-	///   - unsharpMaskIntensity: The intensity of the unsharp mask effect applied to the in-focus area. (0...)
+	///   - unsharpMaskRadius: The radius of the unsharpened mask effect applied to the in-focus area of effect (0...)
+	///   - unsharpMaskIntensity: The intensity of the unsharp mask effect (0...)
 	///   - radius: The distance from the center of the effect. (0...)
 	///   - active: should this filter be applied
 	/// - Returns: processed new `CIImage`, or identity if `active` is false
@@ -2197,12 +2197,12 @@ public extension CIImage {
 	///
 	///
 	/// - Parameters:
-	///   - insetPoint0: A vector that represents the first corner of the rectangular inset region.
-	///   - insetPoint1: A vector that represents the second corner of the rectangular inset region.
-	///   - strands: The number of droste strands (-10...10)
-	///   - periodicity: The number of times that the image is repeated in each spiral of a stranded Droste image. (1...)
-	///   - rotation: The amount by which to rotate the inset image.
-	///   - zoom: A value that controls by how much to zoom the inset image (0.01...)
+	///   - insetPoint0: The x and y position that defines the first inset point
+	///   - insetPoint1: The x and y position that defines the second inset point
+	///   - strands: The amount of strands (-10...10)
+	///   - periodicity: The amount of intervals (1...)
+	///   - rotation: The angle of the rotation, in radians
+	///   - zoom: The zoom of the effect (0.01...)
 	///   - active: should this filter be applied
 	/// - Returns: processed new `CIImage`, or identity if `active` is false
 	@available(iOS 14, macOS 11.0, *)
@@ -2236,9 +2236,9 @@ public extension CIImage {
 	///
 	///
 	/// - Parameters:
-	///   - smallImage: The image that the filter upsamples.
-	///   - spatialSigma: A value that specifies the influence of the input image's spatial information on the upsampling operation. (0...5)
-	///   - lumaSigma: A value that specifies the influence of the input image's luma information on the upsampling operation. (0...1)
+	///   - smallImage: An image representing the reference for scaling the input image with the type CIImage
+	///   - spatialSigma: The influence of the input image’s spatial information on the upsampling operation (0...5)
+	///   - lumaSigma: Influence of the input image’s luma information on the upsampling operation (0...1)
 	///   - active: should this filter be applied
 	/// - Returns: processed new `CIImage`, or identity if `active` is false
 	@available(iOS 13, macOS 10.15, *)
@@ -4201,7 +4201,7 @@ public extension CIImage {
 	///   - topRight: The top right coordinate to be perspective corrected.
 	///   - bottomRight: The bottom right coordinate to be perspective corrected.
 	///   - bottomLeft: The bottom left coordinate to be perspective corrected.
-	///   - crop: A rectangle that specifies the extent of the corrected image.
+	///   - crop: _____TODO_____
 	///   - active: should this filter be applied
 	/// - Returns: processed new `CIImage`, or identity if `active` is false
 	@available(iOS 13, macOS 10.15, *)
@@ -5344,11 +5344,11 @@ public extension CIImage {
 	///
 	///
 	/// - Parameters:
-	///   - point0: A vector containing the position of the first point of the tone curve.
-	///   - point1: A vector containing the position of the second point of the tone curve.
-	///   - point2: A vector containing the position of the third point of the tone curve.
-	///   - point3: A vector containing the position of the fourth point of the tone curve.
-	///   - point4: A vector containing the position of the fifth point of the tone curve.
+	///   - point0: A vector containing the position of the first point of the tone curve
+	///   - point1: A vector containing the position of the second point of the tone curve
+	///   - point2: A vector containing the position of the third point of the tone curve
+	///   - point3: A vector containing the position of the fourth point of the tone curve
+	///   - point4: A vector containing the position of the fifth point of the tone curve
 	/// - Returns: processed new `CIImage` or identity if parameters result in no operation applied
 	@available(iOS 13, macOS 10.15, *)
 	func toneCurve(point0: CGPoint,
@@ -5951,8 +5951,8 @@ public extension CIImage {
 	/// - Parameters:
 	///   - value: The color value used to generate the color wheel. (0...)
 	///   - radius: The distance from the center of the effect. (0...)
-	///   - softness: The softness of the generated color wheel. (0...)
-	///   - dither: A Boolean value specifying whether the dither the generated output. (0...)
+	///   - softness: A float representing the softness of the generated color wheel (0...)
+	///   - dither: A boolean value specifying whether the distort the generated output (0...)
 	///   - colorSpace: The CGColorSpaceRef that the color wheel should be generated in.
 	/// - Returns: a color wheel that shows hues and saturations for a specified value
 	@available(iOS 13, macOS 10.15, *)
@@ -5985,7 +5985,7 @@ public extension CIImage {
 	///   - color: A color.
 	///   - haloRadius: The radius of the halo. (0...)
 	///   - haloWidth: The width of the halo, from its inner radius to its outer radius. (0...)
-	///   - haloOverlap: The separation of colors in the halo. (0...)
+	///   - haloOverlap: A float representing the overlap of red, green, and blue halos. A value of 1 results in a full overlap. (0...)
 	///   - striationStrength: The intensity of the halo colors. Larger values are more intense. (0...)
 	///   - striationContrast: The contrast of the halo colors. Larger values are higher contrast. (0...)
 	///   - time: The duration of the effect. (0...1)
@@ -6411,5 +6411,10 @@ public extension CIImage {
 		return filter.outputImage ?? CIImage.empty()
 	}
 }
+
+
+
+
+
 
 

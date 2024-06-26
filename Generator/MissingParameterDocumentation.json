@@ -1,6 +1,6 @@
 {
 	"CIBokehBlur" : {
-		"softness" : "The softness of the bokeh effect."
+		"softness" : "The softness of the bokeh effect"
 	},
 	"CIDepthBlurEffect" : {
 		"_NOTE" : "THIS WAS GLEANED FROM WWDC2017#508 VIDEO; NO OFFICIAL APPLE DOCUMENTATION FOUND",
@@ -19,44 +19,40 @@
 		"shape" : "UNKNOWN"
 	},
 	"CIDepthOfField" : {
-		"point0" : "The first point in the focused region of the output image.",
-		"point1" : "The second point in the focused region of the output image.",
-		"unsharpMaskIntensity" : "The intensity of the unsharp mask effect applied to the in-focus area.",
-		"unsharpMaskRadius" : "The radius of the unsharp mask effect applied to the in-focus area."
+		"point0" : "A set of coordinates marking the first point to be focused on",
+		"point1" : "A set of coordinates marking the second point to be focused on",
+		"unsharpMaskIntensity" : "The intensity of the unsharp mask effect",
+		"unsharpMaskRadius" : "The radius of the unsharpened mask effect applied to the in-focus area of effect"
 	},
 	"CIDroste" : {
-		"_NOTE" : "THIS WAS GLEANED FROM MICROSOFT.COM DOCUMENTATION; NO OFFICIAL APPLE DOCUMENTATION FOUND",
-		"insetPoint0" : "A vector that represents the first corner of the rectangular inset region.",
-		"insetPoint1" : "A vector that represents the second corner of the rectangular inset region.",
-		"periodicity" : "The number of times that the image is repeated in each spiral of a stranded Droste image.",
-		"rotation" : "The amount by which to rotate the inset image.",
-		"strands" : "The number of droste strands",
-		"zoom" : "A value that controls by how much to zoom the inset image"
+		"insetPoint0" : "The x and y position that defines the first inset point",
+		"insetPoint1" : "The x and y position that defines the second inset point",
+		"periodicity" : "The amount of intervals",
+		"rotation" : "The angle of the rotation, in radians",
+		"strands" : "The amount of strands",
+		"zoom" : "The zoom of the effect"
 	},
 	"CIEdgePreserveUpsampleFilter" : {
-		"lumaSigma" : "A value that specifies the influence of the input image's luma information on the upsampling operation.",
-		"smallImage" : "The image that the filter upsamples.",
-		"spatialSigma" : "A value that specifies the influence of the input image's spatial information on the upsampling operation."
+		"lumaSigma" : "Influence of the input image’s luma information on the upsampling operation",
+		"smallImage" : "An image representing the reference for scaling the input image with the type CIImage",
+		"spatialSigma" : "The influence of the input image’s spatial information on the upsampling operation"
 	},
 	"CIGuidedFilter" : {
 		"_NOTE" : "THIS WAS GLEANED FROM DESCRIPTIONS OF THIS FILTER IN GENERAL; NO OFFICIAL APPLE DOCUMENTATION FOUND",
 		"epsilon" : "Smoothness. A higher value means more smoothing."
 	},
 	"CIHueSaturationValueGradient" : {
-		"dither" : "A Boolean value specifying whether the dither the generated output.",
-		"softness" : "The softness of the generated color wheel."
+		"dither" : "A boolean value specifying whether the distort the generated output",
+		"softness" : "A float representing the softness of the generated color wheel"
 	},
 	"CILenticularHaloGenerator" : {
-		"haloOverlap" : "The separation of colors in the halo."
-	},
-	"CIPerspectiveCorrection" : {
-		"crop" : "A rectangle that specifies the extent of the corrected image."
+		"haloOverlap" : "A float representing the overlap of red, green, and blue halos. A value of 1 results in a full overlap."
 	},
 	"CIToneCurve" : {
-		"point0" : "A vector containing the position of the first point of the tone curve.",
-		"point1" : "A vector containing the position of the second point of the tone curve.",
-		"point2" : "A vector containing the position of the third point of the tone curve.",
-		"point3" : "A vector containing the position of the fourth point of the tone curve.",
-		"point4" : "A vector containing the position of the fifth point of the tone curve."
+		"point0" : "A vector containing the position of the first point of the tone curve",
+		"point1" : "A vector containing the position of the second point of the tone curve",
+		"point2" : "A vector containing the position of the third point of the tone curve",
+		"point3" : "A vector containing the position of the fourth point of the tone curve",
+		"point4" : "A vector containing the position of the fifth point of the tone curve"
 	}
 }
