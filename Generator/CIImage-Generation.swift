@@ -73,7 +73,9 @@ func dumpFilters() {
 
 	
 	/*
-	 Load abstracts for all functions that are documented on the web
+	 Load abstracts for all functions that are documented on the OLD reference page. Still, some of these descriptions are a bit more descriptive than the built-in descriptions.
+
+	 Possible improvement, scrape the same pages that are used above to generate docLookup.json to get the most up-to-date abstracts from the web.
 
 	 Start with
 	 https://developer.apple.com/library/archive/documentation/GraphicsImaging/Reference/CoreImageFilterReference/
