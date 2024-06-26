@@ -119,6 +119,33 @@ public extension CIImage {
 	// NOTE: CIAffineTransform already has a CIImage method: func transformed(by: CGAffineTransform) -> CIImage
 
 
+	/// Area Alpha Weighted Histogram
+	///
+	/// Calculates alpha-weighted histograms of the unpremultiplied R, G, B channels for the specified area of an image. The output image is a one pixel tall image containing the histogram data for the RGB channels.
+	///
+	/// ⚠️ No Apple Documentation available for 'CIAreaAlphaWeightedHistogram'
+	///
+	/// Categories: Reduction, Video, Still Image, Built-In
+	///
+	///
+	/// - Parameters:
+	///   - extent: A rectangle that defines the extent of the effect.
+	///   - scale: The scale value to use for the histogram values. If the scale is 1.0 and the image is opaque, then the bins in the resulting image will add up to 1.0. (0...)
+	///   - count: The number of bins for the histogram. This value will determine the width of the output image. (1...2048)
+	///   - active: should this filter be applied
+	/// - Returns: processed new `CIImage`, or identity if `active` is false
+	@available(iOS 18, macOS 15.0, *)
+	func areaAlphaWeightedHistogram(extent: CGRect, scale: Float = 1, count: Int = 64, active: Bool = true) -> CIImage {
+		guard active else { return self }
+
+		let filter = CIFilter.areaAlphaWeightedHistogram() // CIAreaAlphaWeightedHistogram
+		filter.inputImage = self
+		filter.extent = extent
+		filter.scale = scale
+		filter.count = count
+		return filter.outputImage ?? CIImage.empty()
+	}
+
 	/// Area Average
 	///
 	/// Calculates the average color for the specified area in an image, returning the result in a pixel.
@@ -137,6 +164,29 @@ public extension CIImage {
 		guard active else { return self }
 
 		let filter = CIFilter.areaAverage() // CIAreaAverage
+		filter.inputImage = self
+		filter.extent = extent
+		return filter.outputImage ?? CIImage.empty()
+	}
+
+	/// Area Bounds Red
+	///
+	/// Calculates the approximate bounding box of pixels within the specified area of an image where the red component values are non-zero. The result is 1x1 pixel image where the RGBA values contain the normalized X,Y,W,H dimensions of the bounding box.
+	///
+	/// ⚠️ No Apple Documentation available for 'CIAreaBoundsRed'
+	///
+	/// Categories: Reduction, Video, Still Image, High Dynamic Range, Built-In
+	///
+	///
+	/// - Parameters:
+	///   - extent: A rectangle that specifies the subregion of the image that you want to process.
+	///   - active: should this filter be applied
+	/// - Returns: processed new `CIImage`, or identity if `active` is false
+	@available(iOS 18, macOS 15.0, *)
+	func areaBoundsRed(extent: CGRect, active: Bool = true) -> CIImage {
+		guard active else { return self }
+
+		let filter = CIFilter.areaBoundsRed() // CIAreaBoundsRed
 		filter.inputImage = self
 		filter.extent = extent
 		return filter.outputImage ?? CIImage.empty()
@@ -3441,6 +3491,30 @@ public extension CIImage {
 		return filter.outputImage ?? CIImage.empty()
 	}
 
+	/// Maximum Scale Transform
+	///
+	/// Produces a scaled version of a source image that uses the maximum of neighboring pixels instead of linear averaging.
+	///
+	/// ⚠️ No Apple Documentation available for 'CIMaximumScaleTransform'
+	///
+	/// Categories: Geometry Adjustment, Video, Still Image, Built-In, High Dynamic Range
+	///
+	///
+	/// - Parameters:
+	///   - scale: The scaling factor to use on the image. Values less than 1.0 scale down the images. Values greater than 1.0 scale up the image. (0...)
+	///   - aspectRatio: The additional horizontal scaling factor to use on the image. (0...)
+	/// - Returns: processed new `CIImage` or identity if parameters result in no operation applied
+	@available(iOS 18, macOS 15.0, *)
+	func maximumScaleTransform(scale: Float = 1, aspectRatio: Float = 1) -> CIImage {
+		guard scale != 1 || aspectRatio != 1 else { return self }
+
+		let filter = CIFilter.maximumScaleTransform() // CIMaximumScaleTransform
+		filter.inputImage = self
+		filter.scale = scale
+		filter.aspectRatio = aspectRatio
+		return filter.outputImage ?? CIImage.empty()
+	}
+
 	/// Median
 	///
 	/// Computes the median value for a group of neighboring pixels and replaces each pixel value with the median. The effect is to reduce noise.
@@ -5216,6 +5290,31 @@ public extension CIImage {
 		filter.point2 = point2
 		filter.point3 = point3
 		filter.point4 = point4
+		return filter.outputImage ?? CIImage.empty()
+	}
+
+	/// Tone Map Headroom
+	///
+	/// Apply a global tone curve to an image that reduces colors from a source headroom value to a target headroom value.
+	///
+	/// ⚠️ No Apple Documentation available for 'CIToneMapHeadroom'
+	///
+	/// Categories: Color Adjustment, Video, Interlaced, High Dynamic Range, Non-Square Pixels, Still Image, Built-In
+	///
+	///
+	/// - Parameters:
+	///   - sourceHeadroom: Specifies the headroom of the input image. (1...32)
+	///   - targetHeadroom: Specifies the target headroom of the output image. (1...32)
+	///   - active: should this filter be applied
+	/// - Returns: processed new `CIImage`, or identity if `active` is false
+	@available(iOS 18, macOS 15.0, *)
+	func toneMapHeadroom(sourceHeadroom: Float, targetHeadroom: Float = 1, active: Bool = true) -> CIImage {
+		guard active else { return self }
+
+		let filter = CIFilter.toneMapHeadroom() // CIToneMapHeadroom
+		filter.inputImage = self
+		filter.sourceHeadroom = sourceHeadroom
+		filter.targetHeadroom = targetHeadroom
 		return filter.outputImage ?? CIImage.empty()
 	}
 
