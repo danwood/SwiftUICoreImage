@@ -23,8 +23,8 @@ private var unknownProperties: [String: [String: String]] = [:]
 
 func dumpFilters() {
 
-	// Load abstracts - this is scraped from the core image documentation website since any data source was not found.
 	/*
+	 Load abstracts for all functions that are documented on the web
 
 	 Start with
 	 https://developer.apple.com/library/archive/documentation/GraphicsImaging/Reference/CoreImageFilterReference/
@@ -60,7 +60,8 @@ func dumpFilters() {
 		  let functionMinima: [String: String] = json as? [String: String]
 	else { print("// 🛑 can't load FunctionMinima.json"); return }
 
-	// Load documentation for parameters that is missing from the API, from a file painstakingly scraped from the web.
+	/* Generate this list by running the code; it finds inputs missing documentation replacing with "_____TODO_____". Update the MissingParameterDocumentation.json file as this is improved. Documentation can come from whatever sources can be scrapped together; use "_NOTE" key just to notate how we found the information.
+	 */
 	guard let url = Bundle.main.url(forResource: "MissingParameterDocumentation", withExtension: "json"),
 		  let data = try? Data(contentsOf: url),
 		  let json = try? JSONSerialization.jsonObject(with: data, options: []),
@@ -120,14 +121,14 @@ func dumpFilters() {
 }
 
 // Use this to start collecting properties needing some documentation, to then put into MissingParameterDocumentation.json
-private func dumpUnknownProperties() {
+func dumpUnknownProperties() {
 	if let theJSONData = try?  JSONSerialization.data(
 		withJSONObject: unknownProperties,
-		options: .prettyPrinted
+		options: [.sortedKeys, .prettyPrinted]
 	),
 	   let theJSONText = String(data: theJSONData,
 								encoding: String.Encoding.ascii) {
-		print("\n\n\nDumped properties missing documentation = \n\n\n\(theJSONText)")
+		print("\n\n\n_________________________\n\nDumped properties missing documentation = \n\n\n\(theJSONText)")
 	}
 }
 
@@ -228,12 +229,14 @@ private func outputDocumentation(_ filter: CIFilter, isGenerator: Bool, abstract
 		let longerInput: String = parameterName(displayName: displayName, filterName: filterName)
 		var description:  String = attributes[kCIAttributeDescription] as? String ?? "[unknown]"
 		if nil == attributes[kCIAttributeDescription] {
+			
 			// TEMPORARY CODE TO COLLECT UNKNOWN PROPERTIES
-			/*
 			var foundUnknownPropertiesForFilter: [String: String] = unknownProperties[filterName] ?? [:]
-			foundUnknownPropertiesForFilter[longerInput] = "TODO"
+			if nil == foundUnknownPropertiesForFilter[longerInput] {
+				foundUnknownPropertiesForFilter[longerInput] = "_____TODO_____"
+			}
 			unknownProperties[filterName] = foundUnknownPropertiesForFilter
-			*/
+			
 			if let missingParameters: [String: String] = unknownProperties[filterName],
 			   let replacementDocumentation: String = missingParameters[longerInput] {
 				description = replacementDocumentation

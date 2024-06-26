@@ -11,6 +11,7 @@ import SwiftUI
 struct GenerateSwiftUICoreImageApp: App {
     var body: some Scene {
         let _ = dumpFilters()
+		let _ = dumpUnknownProperties()
         WindowGroup {
             ContentView()
         }

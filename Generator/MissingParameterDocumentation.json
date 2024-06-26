@@ -1,22 +1,31 @@
 {
+	"CIBokehBlur" : {
+		"softness" : "The softness of the bokeh effect."
+	},
+	"CIDepthBlurEffect" : {
+		"_NOTE" : "THIS WAS GLEANED FROM WWDC2017#508 VIDEO; NO OFFICIAL APPLE DOCUMENTATION FOUND",
+		"aperture" : "Simulated lens aperature to adjust blur for unfocused elements",
+		"auxDataMetadata" : "UNKNOWN",
+		"calibrationData" : "UNKNOWN",
+		"chinPositions" : "Vector of up to 4 x,y positions indicating where peoples' chins are",
+		"disparityImage" : "Grayscale image indicating depth; lighter is nearer.",
+		"focusRectangle" : "Part of the rectangle to make sure to put into focus",
+		"gainMap" : "UNKNOWN",
+		"leftEyePositions" : "Vector of up to 4 x,y positions indicating where peoples' left eyes are",
+		"lumaNoiseScale" : "UNKNOWN",
+		"nosePositions" : "Vector of up to 4 x,y positions indicating where peoples' noses are",
+		"rightEyePositions" : "Vector of up to 4 x,y positions indicating where peoples' right eyes are",
+		"scaleFactor" : "Integrated downsampling (rather than doing it later) since this is computationally expensive",
+		"shape" : "UNKNOWN"
+	},
 	"CIDepthOfField" : {
 		"point0" : "The first point in the focused region of the output image.",
 		"point1" : "The second point in the focused region of the output image.",
 		"unsharpMaskIntensity" : "The intensity of the unsharp mask effect applied to the in-focus area.",
 		"unsharpMaskRadius" : "The radius of the unsharp mask effect applied to the in-focus area."
 	},
-	"CIBokehBlur" : {
-		"softness" : "The softness of the bokeh effect."
-	},
-	"CIPerspectiveCorrection" : {
-		"crop" : "A rectangle that specifies the extent of the corrected image."
-	},
-	"CIHueSaturationValueGradient" : {
-		"dither" : "A Boolean value specifying whether the dither the generated output.",
-		"softness" : "The softness of the generated color wheel."
-	},
 	"CIDroste" : {
-		"NOTE": "THIS WAS GLEANED FROM MICROSOFT.COM DOCUMENTATION; NO OFFICIAL APPLE DOCUMENTATION FOUND",
+		"_NOTE" : "THIS WAS GLEANED FROM MICROSOFT.COM DOCUMENTATION; NO OFFICIAL APPLE DOCUMENTATION FOUND",
 		"insetPoint0" : "A vector that represents the first corner of the rectangular inset region.",
 		"insetPoint1" : "A vector that represents the second corner of the rectangular inset region.",
 		"periodicity" : "The number of times that the image is repeated in each spiral of a stranded Droste image.",
@@ -24,41 +33,30 @@
 		"strands" : "The number of droste strands",
 		"zoom" : "A value that controls by how much to zoom the inset image"
 	},
+	"CIEdgePreserveUpsampleFilter" : {
+		"lumaSigma" : "A value that specifies the influence of the input imageâs luma information on the upsampling operation.",
+		"smallImage" : "The image that the filter upsamples.",
+		"spatialSigma" : "A value that specifies the influence of the input imageâs spatial information on the upsampling operation."
+	},
+	"CIGuidedFilter" : {
+		"_NOTE" : "THIS WAS GLEANED FROM DESCRIPTIONS OF THIS FILTER IN GENERAL; NO OFFICIAL APPLE DOCUMENTATION FOUND",
+		"epsilon" : "Smoothness. A higher value means more smoothing."
+	},
+	"CIHueSaturationValueGradient" : {
+		"dither" : "A Boolean value specifying whether the dither the generated output.",
+		"softness" : "The softness of the generated color wheel."
+	},
+	"CILenticularHaloGenerator" : {
+		"haloOverlap" : "The separation of colors in the halo."
+	},
+	"CIPerspectiveCorrection" : {
+		"crop" : "A rectangle that specifies the extent of the corrected image."
+	},
 	"CIToneCurve" : {
 		"point0" : "A vector containing the position of the first point of the tone curve.",
 		"point1" : "A vector containing the position of the second point of the tone curve.",
 		"point2" : "A vector containing the position of the third point of the tone curve.",
 		"point3" : "A vector containing the position of the fourth point of the tone curve.",
 		"point4" : "A vector containing the position of the fifth point of the tone curve."
-	},
-	"CILenticularHaloGenerator" : {
-		"haloOverlap" : "The separation of colors in the halo."
-	},
-	"CIGuidedFilter" : {
-		"NOTE": "THIS WAS GLEANED FROM DESCRIPTIONS OF THIS FILTER IN GENERAL; NO OFFICIAL APPLE DOCUMENTATION FOUND",
-		"epsilon" : "Smoothness. A higher value means more smoothing."
-	},
-	"CIDepthBlurEffect" : {
-		"NOTE": "THIS WAS GLEANED FROM WWDC2017#508 VIDEO; NO OFFICIAL APPLE DOCUMENTATION FOUND",
-		"aperture" : "Simulated lens aperature to adjust blur for unfocused elements",
-		"auxDataMetadata" : "UNKNOWN",
-		"calibrationData" : "UNKNOWN",
-		"disparityImage" : "Grayscale image indicating depth; lighter is nearer.",
-		"focusRectangle" : "Part of the rectangle to make sure to put into focus",
-		"gainMap" : "UNKNOWN",
-		"lumaNoiseScale" : "UNKNOWN",
-		"scaleFactor" : "Integrated downsampling (rather than doing it later) since this is computationally expensive",
-		"shape" : "UNKNOWN",
-
-		"chinPositions" : "Vector of up to 4 x,y positions indicating where peoples' chins are",
-		"leftEyePositions" : "Vector of up to 4 x,y positions indicating where peoples' left eyes are",
-		"nosePositions" : "Vector of up to 4 x,y positions indicating where peoples' noses are",
-		"rightEyePositions" : "Vector of up to 4 x,y positions indicating where peoples' right eyes are"
-
-	},
-	"CIEdgePreserveUpsampleFilter" : {
-		"lumaSigma" : "A value that specifies the influence of the input image’s luma information on the upsampling operation.",
-		"smallImage" : "The image that the filter upsamples.",
-		"spatialSigma" : "A value that specifies the influence of the input image’s spatial information on the upsampling operation."
 	}
 }
