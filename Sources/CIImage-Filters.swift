@@ -1866,7 +1866,8 @@ public extension CIImage {
 		return filter.outputImage ?? CIImage.empty()
 	}
 
-	// ℹ️ CIDepthBlurEffect already has a CIImage method: func depthBlurEffectFilter(for...) — several variants exist -> CIImage
+	// ℹ️ CIDepthBlurEffect already has a CIImage method: func depthBlurEffectFilter(for...) -> CIImage
+	// https://developer.apple.com/documentation/coreimage/cicontext#4375374
 
 
 	/// Depth of Field
@@ -4201,7 +4202,7 @@ public extension CIImage {
 	///   - topRight: The top right coordinate to be perspective corrected.
 	///   - bottomRight: The bottom right coordinate to be perspective corrected.
 	///   - bottomLeft: The bottom left coordinate to be perspective corrected.
-	///   - crop: A rectangle that specifies the extent of the corrected image. Not documented; perhaps obsolete.
+	///   - crop: A rectangle that specifies the extent of the corrected image
 	///   - active: should this filter be applied
 	/// - Returns: processed new `CIImage`, or identity if `active` is false
 	@available(iOS 13, macOS 10.15, *)
@@ -4761,6 +4762,7 @@ public extension CIImage {
 	}
 
 	// ℹ️ CISampleNearest already has a CIImage method: func samplingNearest() -> CIImage
+	// https://developer.apple.com/documentation/coreimage/ciimage/2867429-samplingnearest
 
 
 	/// Saturation Blend Mode
@@ -5951,7 +5953,7 @@ public extension CIImage {
 	/// - Parameters:
 	///   - value: The color value used to generate the color wheel. (0...)
 	///   - radius: The distance from the center of the effect. (0...)
-	///   - softness: A float representing the softness of the generated color wheel (0...)
+	///   - softness: The softness of the generated color wheel (0...)
 	///   - dither: A boolean value specifying whether the distort the generated output (0...)
 	///   - colorSpace: The CGColorSpaceRef that the color wheel should be generated in.
 	/// - Returns: a color wheel that shows hues and saturations for a specified value
@@ -5985,7 +5987,7 @@ public extension CIImage {
 	///   - color: A color.
 	///   - haloRadius: The radius of the halo. (0...)
 	///   - haloWidth: The width of the halo, from its inner radius to its outer radius. (0...)
-	///   - haloOverlap: A float representing the overlap of red, green, and blue halos. A value of 1 results in a full overlap. (0...)
+	///   - haloOverlap: The overlap of red, green, and blue halos. A value of 1 results in a full overlap. (0...)
 	///   - striationStrength: The intensity of the halo colors. Larger values are more intense. (0...)
 	///   - striationContrast: The contrast of the halo colors. Larger values are higher contrast. (0...)
 	///   - time: The duration of the effect. (0...1)

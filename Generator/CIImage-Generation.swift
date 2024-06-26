@@ -621,12 +621,19 @@ private func outputImageToImage(_ filter: CIFilter, abstractLookup: [String: Str
 																  "CIClamp": "clamped(to: CGRect)",
 																  "CISampleNearest": "samplingNearest()",
 																  // https://developer.apple.com/documentation/coreimage/ciimage/2867429-samplingnearest
-	"CIDepthBlurEffect": "depthBlurEffectFilter(for...) — several variants exist"
+	"CIDepthBlurEffect": "depthBlurEffectFilter(for...)"
 																  // https://developer.apple.com/documentation/coreimage/cicontext#4375374
 ]
+
+	let filtersThatAlreadyHaveImageExtensionDoc: [String: String] = ["CISampleNearest": "https://developer.apple.com/documentation/coreimage/ciimage/2867429-samplingnearest",
+																  "CIDepthBlurEffect": "https://developer.apple.com/documentation/coreimage/cicontext#4375374"]
+
 	if let existingFunction: String = filtersThatAlreadyHaveImageExtension[filterName] {
 		print("")
 		print("// ℹ️ \(filterName) already has a CIImage method: func \(existingFunction) -> CIImage")
+		if let existingFunctionURL = filtersThatAlreadyHaveImageExtensionDoc[filterName] {
+			print("// \(existingFunctionURL)")
+		}
 		print("")
 		return
 	}

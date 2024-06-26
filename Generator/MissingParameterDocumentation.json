@@ -43,13 +43,13 @@
 	},
 	"CIHueSaturationValueGradient" : {
 		"dither" : "A boolean value specifying whether the distort the generated output",
-		"softness" : "A float representing the softness of the generated color wheel"
+		"softness" : "The softness of the generated color wheel"
 	},
 	"CILenticularHaloGenerator" : {
-		"haloOverlap" : "A float representing the overlap of red, green, and blue halos. A value of 1 results in a full overlap."
+		"haloOverlap" : "The overlap of red, green, and blue halos. A value of 1 results in a full overlap."
 	},
 	"CIPerspectiveCorrection" : {
-		"crop" : "A rectangle that specifies the extent of the corrected image. Not documented; perhaps obsolete."
+		"crop" : "A rectangle that specifies the extent of the corrected image"
 	},
 	"CIToneCurve" : {
 		"point0" : "A vector containing the position of the first point of the tone curve",
