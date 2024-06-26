@@ -226,9 +226,12 @@ private func outputDocumentation(_ filter: CIFilter, isGenerator: Bool, abstract
 		functionFilterName = foundManualLookup
 	}
 
+	// These are still in beta, so I'm not seeing them on the main category lists. https://developer.apple.com/documentation/coreimage/cifilter
 	let manualURLLookup = ["CIAreaBoundsRed": "4401847-areaboundsred",
 						   "CIMaximumScaleTransform": "4401870-maximumscaletransform",
-						   "CIToneMapHeadroom": "4401878-tonemapheadroom"]
+						   "CIToneMapHeadroom": "4401878-tonemapheadroom",
+						   "CIAreaAlphaWeightedHistogram": "4401846-areaalphaweightedhistogram"
+	]
 
 	let newDocURLFragment: String?
 	if let manualURLFragment = manualURLLookup[filterName] {
@@ -244,16 +247,10 @@ private func outputDocumentation(_ filter: CIFilter, isGenerator: Bool, abstract
 		if let newDocURLFragment = docLookup[withoutSuffix] {
 			print("/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/\(newDocURLFragment))")
 		} else {
-			print("/// ⚠️ No new documentation available for \(filterName)")
+			print("/// ⚠️ No documentation available for \(filterName)")
 		}
 	}
-	/*
-	 TOTALLY UNKNOWN AT THIS TIME.  Apparently they are all iOS 13 and macOS 10.15
-	 /// ⚠️ CIAreaAlphaWeightedHistogram
-	 /// ⚠️ CICameraCalibrationLensCorrection
-	 /// ⚠️ CIGuidedFilter
 
-	 */
 	if let documentationURL {
 		if nil != abstractLookup[filterName] {
 			let urlFragment: String
@@ -610,13 +607,13 @@ private func outputImageToImage(_ filter: CIFilter, abstractLookup: [String: Str
 
 	let filterName = filter.name
 
-	let filtersWithoutSwiftAPI: Set<String> = ["CICameraCalibrationLensCorrection", "CIDepthBlurEffect", "CIGuidedFilter", "CISampleNearest"]
+	let filtersWithoutSwiftAPI: Set<String> = ["CICameraCalibrationLensCorrection", "CIGuidedFilter"]
 	let filtersThatAlreadyHaveImageExtension: [String: String] = ["CIAffineTransform": "transformed(by: CGAffineTransform)",
 																  "CICrop": "cropped(to: CGRect)",
 																  "CIClamp": "clamped(to: CGRect)",
 																  "CISampleNearest": "samplingNearest()",
 																  // https://developer.apple.com/documentation/coreimage/ciimage/2867429-samplingnearest
-	"CIDepthBlurEffect": "depthBlurEffectFilter(for:disparityImage:portraitEffectsMatte:hairSemanticSegmentation:glassesMatte:gainMap:orientation:options:)"
+	"CIDepthBlurEffect": "depthBlurEffectFilter(for...) — several variants exist"
 																  // https://developer.apple.com/documentation/coreimage/cicontext#4375374
 ]
 	if let existingFunction: String = filtersThatAlreadyHaveImageExtension[filterName] {

@@ -18,7 +18,8 @@ public extension CIImage {
 	///
 	/// Transitions from one image to another of differing dimensions by unfolding and crossfading.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIAccordionFoldTransition)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228263-accordionfoldtransition)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIAccordionFoldTransition)
 	///
 	/// Categories: Transition, Video, Still Image, Built-In, High Dynamic Range
 	///
@@ -54,7 +55,8 @@ public extension CIImage {
 	///
 	/// Adds color components to achieve a brightening effect. This filter is typically used to add highlights and lens flare effects.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIAdditionCompositing)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228264-additioncompositing)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIAdditionCompositing)
 	///
 	/// Categories: Composite Operation, Video, Still Image, Interlaced, Non-Square Pixels, High Dynamic Range, Built-In
 	///
@@ -76,7 +78,8 @@ public extension CIImage {
 	///
 	/// Performs an affine transformation on a source image and then clamps the pixels at the edge of the transformed image, extending them outwards. This filter performs similarly to the “Affine Transform” filter except that it produces an image with infinite extent. You can use this filter when you need to blur an image but you want to avoid a soft, black fringe along the edges.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIAffineClamp)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228265-affineclamp)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIAffineClamp)
 	///
 	/// Categories: Tile Effect, Video, Still Image, Built-In, High Dynamic Range
 	///
@@ -98,7 +101,8 @@ public extension CIImage {
 	///
 	/// Applies an affine transformation to an image and then tiles the transformed image.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIAffineTile)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228266-affinetile)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIAffineTile)
 	///
 	/// Categories: Tile Effect, Video, Still Image, Built-In, High Dynamic Range
 	///
@@ -116,14 +120,14 @@ public extension CIImage {
 		return filter.outputImage ?? CIImage.empty()
 	}
 
-	// NOTE: CIAffineTransform already has a CIImage method: func transformed(by: CGAffineTransform) -> CIImage
+	// ℹ️ CIAffineTransform already has a CIImage method: func transformed(by: CGAffineTransform) -> CIImage
 
 
 	/// Area Alpha Weighted Histogram
 	///
 	/// Calculates alpha-weighted histograms of the unpremultiplied R, G, B channels for the specified area of an image. The output image is a one pixel tall image containing the histogram data for the RGB channels.
 	///
-	/// ⚠️ No Apple Documentation available for 'CIAreaAlphaWeightedHistogram'
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/4401846-areaalphaweightedhistogram)
 	///
 	/// Categories: Reduction, Video, Still Image, Built-In
 	///
@@ -150,7 +154,8 @@ public extension CIImage {
 	///
 	/// Calculates the average color for the specified area in an image, returning the result in a pixel.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIAreaAverage)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3547111-areaaverage)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIAreaAverage)
 	///
 	/// Categories: Reduction, Video, Still Image, High Dynamic Range, Built-In
 	///
@@ -173,7 +178,7 @@ public extension CIImage {
 	///
 	/// Calculates the approximate bounding box of pixels within the specified area of an image where the red component values are non-zero. The result is 1x1 pixel image where the RGBA values contain the normalized X,Y,W,H dimensions of the bounding box.
 	///
-	/// ⚠️ No Apple Documentation available for 'CIAreaBoundsRed'
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/4401847-areaboundsred)
 	///
 	/// Categories: Reduction, Video, Still Image, High Dynamic Range, Built-In
 	///
@@ -196,7 +201,8 @@ public extension CIImage {
 	///
 	/// Calculates histograms of the R, G, B, and A channels of the specified area of an image. The output image is a one pixel tall image containing the histogram data for all four channels.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIAreaHistogram)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3547112-areahistogram)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIAreaHistogram)
 	///
 	/// Categories: Reduction, Video, Still Image, Built-In
 	///
@@ -223,7 +229,7 @@ public extension CIImage {
 	///
 	/// Calculates histogram of the R, G, B, and A channels of the specified area of an image. Before binning, the R, G, and B channel values are transformed by the log base two function. The output image is a one pixel tall image containing the histogram data for all four channels.
 	///
-	/// ⚠️ No Apple Documentation available for 'CIAreaLogarithmicHistogram'
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/4401848-arealogarithmichistogram)
 	///
 	/// Categories: Reduction, Video, Still Image, High Dynamic Range, Built-In
 	///
@@ -259,7 +265,8 @@ public extension CIImage {
 	///
 	/// Calculates the maximum component values for the specified area in an image, returning the result in a pixel.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIAreaMaximum)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3547114-areamaximum)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIAreaMaximum)
 	///
 	/// Categories: Reduction, Video, Still Image, High Dynamic Range, Built-In
 	///
@@ -282,7 +289,8 @@ public extension CIImage {
 	///
 	/// Finds and returns the pixel with the maximum alpha value.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIAreaMaximumAlpha)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3547113-areamaximumalpha)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIAreaMaximumAlpha)
 	///
 	/// Categories: Reduction, Video, Still Image, High Dynamic Range, Built-In
 	///
@@ -305,7 +313,7 @@ public extension CIImage {
 	///
 	/// Calculates the per-component minimum and maximum value for the specified area in an image. The result is returned in a 2x1 image where the component minimum values are stored in the pixel on the left.
 	///
-	/// ⚠️ No Apple Documentation available for 'CIAreaMinMax'
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3547115-areaminmax)
 	///
 	/// Categories: Reduction, Video, Still Image, High Dynamic Range, Built-In
 	///
@@ -328,7 +336,7 @@ public extension CIImage {
 	///
 	/// Calculates the minimum and maximum red component value for the specified area in an image. The result is returned in the red and green channels of a one pixel image.
 	///
-	/// ⚠️ No Apple Documentation available for 'CIAreaMinMaxRed'
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3547116-areaminmaxred)
 	///
 	/// Categories: Reduction, Video, Still Image, High Dynamic Range, Built-In
 	///
@@ -351,7 +359,8 @@ public extension CIImage {
 	///
 	/// Calculates the minimum component values for the specified area in an image, returning the result in a pixel.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIAreaMinimum)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3547118-areaminimum)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIAreaMinimum)
 	///
 	/// Categories: Reduction, Video, Still Image, High Dynamic Range, Built-In
 	///
@@ -374,7 +383,8 @@ public extension CIImage {
 	///
 	/// Finds and returns the pixel with the minimum alpha value.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIAreaMinimumAlpha)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3547117-areaminimumalpha)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIAreaMinimumAlpha)
 	///
 	/// Categories: Reduction, Video, Still Image, High Dynamic Range, Built-In
 	///
@@ -397,7 +407,8 @@ public extension CIImage {
 	///
 	/// Transitions from one image to another by swiping rectangular portions of the foreground image to disclose the target image.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIBarsSwipeTransition)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228270-barsswipetransition)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIBarsSwipeTransition)
 	///
 	/// Categories: Transition, Video, Still Image, Built-In, High Dynamic Range
 	///
@@ -431,7 +442,7 @@ public extension CIImage {
 	///
 	/// Produces a high-quality, scaled version of a source image. The parameters of B and C for this filter determine the sharpness or softness of the resampling. The most commonly used B and C values are 0.0 and 0.75, respectively.
 	///
-	/// ⚠️ No Apple Documentation available for 'CIBicubicScaleTransform'
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228271-bicubicscaletransform)
 	///
 	/// Categories: Geometry Adjustment, Video, Still Image, Non-Square Pixels, Built-In, High Dynamic Range
 	///
@@ -462,7 +473,8 @@ public extension CIImage {
 	///
 	/// Uses values from a mask image to interpolate between an image and the background. When a mask alpha value is 0.0, the result is the background. When the mask alpha value is 1.0, the result is the image.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIBlendWithAlphaMask)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228272-blendwithalphamask)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIBlendWithAlphaMask)
 	///
 	/// Categories: Stylize, Video, Still Image, High Dynamic Range, Built-In
 	///
@@ -486,7 +498,7 @@ public extension CIImage {
 	///
 	/// Uses values from a mask image to interpolate between an image and the background. When a mask blue value is 0.0, the result is the background. When the mask blue value is 1.0, the result is the image.
 	///
-	/// ⚠️ No Apple Documentation available for 'CIBlendWithBlueMask'
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228273-blendwithbluemask)
 	///
 	/// Categories: Stylize, Video, Still Image, High Dynamic Range, Built-In
 	///
@@ -510,7 +522,8 @@ public extension CIImage {
 	///
 	/// Uses values from a grayscale mask to interpolate between an image and the background. When a mask green value is 0.0, the result is the background. When the mask green value is 1.0, the result is the image.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIBlendWithMask)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228274-blendwithmask)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIBlendWithMask)
 	///
 	/// Categories: Stylize, Video, Still Image, High Dynamic Range, Built-In
 	///
@@ -534,7 +547,7 @@ public extension CIImage {
 	///
 	/// Uses values from a mask image to interpolate between an image and the background. When a mask red value is 0.0, the result is the background. When the mask red value is 1.0, the result is the image.
 	///
-	/// ⚠️ No Apple Documentation available for 'CIBlendWithRedMask'
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228275-blendwithredmask)
 	///
 	/// Categories: Stylize, Video, Still Image, High Dynamic Range, Built-In
 	///
@@ -558,7 +571,8 @@ public extension CIImage {
 	///
 	/// Softens edges and applies a pleasant glow to an image.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIBloom)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228276-bloom)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIBloom)
 	///
 	/// Categories: Stylize, Video, Still Image, High Dynamic Range, Built-In
 	///
@@ -582,7 +596,7 @@ public extension CIImage {
 	///
 	/// Smooths an image using a disc-shaped convolution kernel.
 	///
-	/// ⚠️ No Apple Documentation available for 'CIBokehBlur'
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228277-bokehblur)
 	///
 	/// Categories: Blur, Video, Still Image, Built-In, High Dynamic Range
 	///
@@ -615,7 +629,8 @@ public extension CIImage {
 	///
 	/// Smooths or sharpens an image using a box-shaped convolution kernel.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIBoxBlur)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228278-boxblur)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIBoxBlur)
 	///
 	/// Categories: Blur, Video, Still Image, Built-In, High Dynamic Range
 	///
@@ -638,7 +653,8 @@ public extension CIImage {
 	///
 	/// Creates a concave or convex bump that originates at a specified point in the image.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIBumpDistortion)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/4401850-bumpdistortion)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIBumpDistortion)
 	///
 	/// Categories: Distortion Effect, Video, Still Image, Built-In, High Dynamic Range
 	///
@@ -664,7 +680,8 @@ public extension CIImage {
 	///
 	/// Creates a concave or convex distortion that originates from a line in the image.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIBumpDistortionLinear)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/4401851-bumpdistortionlinear)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIBumpDistortionLinear)
 	///
 	/// Categories: Distortion Effect, Video, Still Image, Built-In, High Dynamic Range
 	///
@@ -692,7 +709,8 @@ public extension CIImage {
 	///
 	/// Creates a color, halftoned rendition of the source image, using cyan, magenta, yellow, and black inks over a white page.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CICMYKHalftone)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228259-cmykhalftone)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CICMYKHalftone)
 	///
 	/// Categories: Halftone Effect, Video, Still Image, Built-In
 	///
@@ -729,7 +747,7 @@ public extension CIImage {
 	///
 	/// Geometrically distorts an image by altering the magnification based on the radial distance from the optical center to the farthest radius.
 	///
-	/// ⚠️ No Apple Documentation available for 'CICameraCalibrationLensCorrection'
+	/// ⚠️ No documentation available for CICameraCalibrationLensCorrection
 	///
 	/// Categories: Distortion Effect, Video, Still Image, Built-In, High Dynamic Range
 	///
@@ -758,7 +776,7 @@ public extension CIImage {
 	///
 	/// Applies the Canny Edge Detection algorithm to an image.
 	///
-	/// ⚠️ No Apple Documentation available for 'CICannyEdgeDetector'
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/4401852-cannyedgedetector)
 	///
 	/// Categories: Stylize, Video, Still Image, High Dynamic Range, Built-In
 	///
@@ -794,7 +812,8 @@ public extension CIImage {
 	///
 	/// Distorts the pixels starting at the circumference of a circle and emanating outward.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CICircleSplashDistortion)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/4401853-circlesplashdistortion)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CICircleSplashDistortion)
 	///
 	/// Categories: Distortion Effect, Video, Still Image, Built-In, High Dynamic Range
 	///
@@ -819,7 +838,8 @@ public extension CIImage {
 	///
 	/// Simulates a circular-shaped halftone screen.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CICircularScreen)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228280-circularscreen)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CICircularScreen)
 	///
 	/// Categories: Halftone Effect, Video, Still Image, Built-In
 	///
@@ -846,7 +866,8 @@ public extension CIImage {
 	///
 	/// Wraps an image around a transparent circle. The distortion of the image increases with the distance from the center of the circle.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CICircularWrap)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/4401854-circularwrap)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CICircularWrap)
 	///
 	/// Categories: Distortion Effect, Video, Still Image, Built-In, High Dynamic Range
 	///
@@ -868,14 +889,14 @@ public extension CIImage {
 		return filter.outputImage ?? CIImage.empty()
 	}
 
-	// NOTE: CIClamp already has a CIImage method: func clamped(to: CGRect) -> CIImage
+	// ℹ️ CIClamp already has a CIImage method: func clamped(to: CGRect) -> CIImage
 
 
 	/// Color Absolute Difference
 	///
 	/// Produces an image that is the absolute value of the color difference between two images. The alpha channel of the result will be the product of the two image alpha channels.
 	///
-	/// ⚠️ No Apple Documentation available for 'CIColorAbsoluteDifference'
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3547119-colorabsolutedifference)
 	///
 	/// Categories: Color Adjustment, Video, Interlaced, Non-Square Pixels, Still Image, High Dynamic Range, Built-In
 	///
@@ -898,7 +919,8 @@ public extension CIImage {
 	///
 	/// Uses the luminance values of the background with the hue and saturation values of the source image. This mode preserves the gray levels in the image.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIColorBlendMode)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228282-colorblendmode)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIColorBlendMode)
 	///
 	/// Categories: Composite Operation, Video, Still Image, Interlaced, Non-Square Pixels, Built-In
 	///
@@ -920,7 +942,8 @@ public extension CIImage {
 	///
 	/// Darkens the background image samples to reflect the source image samples. Source image sample values that specify white do not produce a change.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIColorBurnBlendMode)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228283-colorburnblendmode)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIColorBurnBlendMode)
 	///
 	/// Categories: Composite Operation, Video, Still Image, Interlaced, Non-Square Pixels, Built-In
 	///
@@ -942,7 +965,8 @@ public extension CIImage {
 	///
 	/// Modifies color values to keep them within a specified range.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIColorClamp)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228284-colorclamp)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIColorClamp)
 	///
 	/// Categories: Color Adjustment, Video, Interlaced, Non-Square Pixels, Still Image, Built-In
 	///
@@ -967,7 +991,8 @@ public extension CIImage {
 	///
 	/// Adjusts saturation, brightness, and contrast values.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIColorControls)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228285-colorcontrols)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIColorControls)
 	///
 	/// Categories: Color Adjustment, Video, Still Image, Interlaced, Non-Square Pixels, High Dynamic Range, Built-In
 	///
@@ -993,7 +1018,8 @@ public extension CIImage {
 	///
 	/// Modifies the pixel values in an image by applying a set of polynomial cross-products.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIColorCrossPolynomial)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228286-colorcrosspolynomial)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIColorCrossPolynomial)
 	///
 	/// Categories: Color Effect, Video, Interlaced, Non-Square Pixels, Still Image, High Dynamic Range, Built-In
 	///
@@ -1023,7 +1049,8 @@ public extension CIImage {
 	///
 	/// Uses a three-dimensional color table to transform the source image pixels.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIColorCube)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228287-colorcube)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIColorCube)
 	///
 	/// Categories: Color Effect, Video, Interlaced, Non-Square Pixels, Still Image, High Dynamic Range, Built-In
 	///
@@ -1050,7 +1077,8 @@ public extension CIImage {
 	///
 	/// Uses a three-dimensional color table to transform the source image pixels and maps the result to a specified color space.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIColorCubeWithColorSpace)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228288-colorcubewithcolorspace)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIColorCubeWithColorSpace)
 	///
 	/// Categories: Color Effect, Video, Interlaced, Non-Square Pixels, Still Image, High Dynamic Range, Built-In
 	///
@@ -1083,7 +1111,7 @@ public extension CIImage {
 	///
 	/// Uses two three-dimensional color tables in a specified colorspace to transform the source image pixels. The mask image is used as an interpolant to mix the output of the two cubes.
 	///
-	/// ⚠️ No Apple Documentation available for 'CIColorCubesMixedWithMask'
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228289-colorcubesmixedwithmask)
 	///
 	/// Categories: Color Effect, Video, Interlaced, Non-Square Pixels, Still Image, High Dynamic Range, Built-In
 	///
@@ -1122,7 +1150,7 @@ public extension CIImage {
 	///
 	/// Uses a three-channel one-dimensional color table to transform the source image pixels.
 	///
-	/// ⚠️ No Apple Documentation available for 'CIColorCurves'
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228290-colorcurves)
 	///
 	/// Categories: Color Effect, Video, Interlaced, Non-Square Pixels, Still Image, Built-In
 	///
@@ -1149,7 +1177,8 @@ public extension CIImage {
 	///
 	/// Brightens the background image samples to reflect the source image samples. Source image sample values that specify black do not produce a change.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIColorDodgeBlendMode)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228291-colordodgeblendmode)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIColorDodgeBlendMode)
 	///
 	/// Categories: Composite Operation, Video, Still Image, Interlaced, Non-Square Pixels, Built-In
 	///
@@ -1171,7 +1200,8 @@ public extension CIImage {
 	///
 	/// Inverts the colors in an image.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIColorInvert)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228292-colorinvert)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIColorInvert)
 	///
 	/// Categories: Color Effect, Video, Interlaced, Non-Square Pixels, Still Image, High Dynamic Range, Built-In
 	///
@@ -1193,7 +1223,8 @@ public extension CIImage {
 	///
 	/// Performs a nonlinear transformation of source color values using mapping values provided in a table.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIColorMap)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228293-colormap)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIColorMap)
 	///
 	/// Categories: Color Effect, Video, Interlaced, Non-Square Pixels, Still Image, Built-In
 	///
@@ -1216,7 +1247,8 @@ public extension CIImage {
 	///
 	/// Multiplies source color values and adds a bias factor to each color component.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIColorMatrix)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228294-colormatrix)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIColorMatrix)
 	///
 	/// Categories: Color Adjustment, Video, Still Image, Interlaced, Non-Square Pixels, High Dynamic Range, Built-In
 	///
@@ -1252,7 +1284,8 @@ public extension CIImage {
 	///
 	/// Remaps colors so they fall within shades of a single color.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIColorMonochrome)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228295-colormonochrome)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIColorMonochrome)
 	///
 	/// Categories: Color Effect, Video, Interlaced, Non-Square Pixels, Still Image, High Dynamic Range, Built-In
 	///
@@ -1276,7 +1309,8 @@ public extension CIImage {
 	///
 	/// Modifies the pixel values in an image by applying a set of cubic polynomials.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIColorPolynomial)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228296-colorpolynomial)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIColorPolynomial)
 	///
 	/// Categories: Color Adjustment, Video, Interlaced, Non-Square Pixels, Still Image, High Dynamic Range, Built-In
 	///
@@ -1309,7 +1343,8 @@ public extension CIImage {
 	///
 	/// Remaps red, green, and blue color components to the number of brightness values you specify for each color component. This filter flattens colors to achieve a look similar to that of a silk-screened poster.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIColorPosterize)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228297-colorposterize)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIColorPosterize)
 	///
 	/// Categories: Color Effect, Video, Interlaced, Non-Square Pixels, Still Image, High Dynamic Range, Built-In
 	///
@@ -1331,7 +1366,7 @@ public extension CIImage {
 	///
 	/// Produces a binarized image from an image and a threshold value. The red, green and blue channels of the resulting image will be one if its value is greater than the threshold and zero otherwise.
 	///
-	/// ⚠️ No Apple Documentation available for 'CIColorThreshold'
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3547120-colorthreshold)
 	///
 	/// Categories: Color Adjustment, Video, Interlaced, Non-Square Pixels, Still Image, Built-In
 	///
@@ -1354,7 +1389,7 @@ public extension CIImage {
 	///
 	/// Produces a binarized image from an image with finite extent. The threshold is calculated from the image histogram using Otsu’s method. The red, green and blue channels of the resulting image will be one if its value is greater than the threshold and zero otherwise.
 	///
-	/// ⚠️ No Apple Documentation available for 'CIColorThresholdOtsu'
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/4401855-colorthresholdotsu)
 	///
 	/// Categories: Color Adjustment, Video, Interlaced, Non-Square Pixels, Still Image, Built-In
 	///
@@ -1376,7 +1411,8 @@ public extension CIImage {
 	///
 	/// Calculates the average color for each column of the specified area in an image, returning the result in a 1D image.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIColumnAverage)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3547121-columnaverage)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIColumnAverage)
 	///
 	/// Categories: Reduction, Video, Still Image, High Dynamic Range, Built-In
 	///
@@ -1399,7 +1435,8 @@ public extension CIImage {
 	///
 	/// Simulates a comic book drawing by outlining edges and applying a color halftone effect.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIComicEffect)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228298-comiceffect)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIComicEffect)
 	///
 	/// Categories: Stylize, Video, Still Image, Built-In
 	///
@@ -1421,7 +1458,7 @@ public extension CIImage {
 	///
 	/// Converts an image from La*b* color space to the Core Image RGB working space.
 	///
-	/// ⚠️ No Apple Documentation available for 'CIConvertLabToRGB'
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/4401856-convertlabtorgb)
 	///
 	/// Categories: Color Effect, Video, Interlaced, Non-Square Pixels, Still Image, High Dynamic Range, Built-In
 	///
@@ -1444,7 +1481,7 @@ public extension CIImage {
 	///
 	/// Converts an image from the Core Image RGB working space to La*b* color space.
 	///
-	/// ⚠️ No Apple Documentation available for 'CIConvertRGBtoLab'
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/4401857-convertrgbtolab)
 	///
 	/// Categories: Color Effect, Video, Interlaced, Non-Square Pixels, Still Image, High Dynamic Range, Built-In
 	///
@@ -1467,7 +1504,8 @@ public extension CIImage {
 	///
 	/// Modifies pixel values by performing a 3x3 matrix convolution.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIConvolution3X3)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228299-convolution3x3)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIConvolution3X3)
 	///
 	/// Categories: Stylize, Video, Still Image, High Dynamic Range, Built-In
 	///
@@ -1491,7 +1529,8 @@ public extension CIImage {
 	///
 	/// Modifies pixel values by performing a 5x5 matrix convolution.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIConvolution5X5)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228300-convolution5x5)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIConvolution5X5)
 	///
 	/// Categories: Stylize, Video, Still Image, High Dynamic Range, Built-In
 	///
@@ -1515,7 +1554,8 @@ public extension CIImage {
 	///
 	/// Modifies pixel values by performing a 7x7 matrix convolution.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIConvolution7X7)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228301-convolution7x7)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIConvolution7X7)
 	///
 	/// Categories: Stylize, Video, Still Image, High Dynamic Range, Built-In
 	///
@@ -1539,7 +1579,8 @@ public extension CIImage {
 	///
 	/// Modifies pixel values by performing a 9-element horizontal convolution.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIConvolution9Horizontal)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228302-convolution9horizontal)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIConvolution9Horizontal)
 	///
 	/// Categories: Stylize, Video, Still Image, High Dynamic Range, Built-In
 	///
@@ -1563,7 +1604,8 @@ public extension CIImage {
 	///
 	/// Modifies pixel values by performing a 9-element vertical convolution.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIConvolution9Vertical)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228303-convolution9vertical)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIConvolution9Vertical)
 	///
 	/// Categories: Stylize, Video, Still Image, High Dynamic Range, Built-In
 	///
@@ -1587,7 +1629,7 @@ public extension CIImage {
 	///
 	/// Convolution of RGB channels with 3 by 3 matrix.
 	///
-	/// ⚠️ No Apple Documentation available for 'CIConvolutionRGB3X3'
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/4401858-convolutionrgb3x3)
 	///
 	/// Categories: Stylize, Video, Still Image, High Dynamic Range, Built-In
 	///
@@ -1611,7 +1653,7 @@ public extension CIImage {
 	///
 	/// Convolution of RGB channels with 5 by 5 matrix.
 	///
-	/// ⚠️ No Apple Documentation available for 'CIConvolutionRGB5X5'
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/4401859-convolutionrgb5x5)
 	///
 	/// Categories: Stylize, Video, Still Image, High Dynamic Range, Built-In
 	///
@@ -1635,7 +1677,7 @@ public extension CIImage {
 	///
 	/// Convolution of RGB channels with 7 by 7 matrix.
 	///
-	/// ⚠️ No Apple Documentation available for 'CIConvolutionRGB7X7'
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/4401860-convolutionrgb7x7)
 	///
 	/// Categories: Stylize, Video, Still Image, High Dynamic Range, Built-In
 	///
@@ -1659,7 +1701,7 @@ public extension CIImage {
 	///
 	/// Horizontal Convolution of RGB channels with 9 values.
 	///
-	/// ⚠️ No Apple Documentation available for 'CIConvolutionRGB9Horizontal'
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/4401861-convolutionrgb9horizontal)
 	///
 	/// Categories: Stylize, Video, Still Image, High Dynamic Range, Built-In
 	///
@@ -1683,7 +1725,7 @@ public extension CIImage {
 	///
 	/// Vertical Convolution of RGB channels with 9 values.
 	///
-	/// ⚠️ No Apple Documentation available for 'CIConvolutionRGB9Vertical'
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/4401862-convolutionrgb9vertical)
 	///
 	/// Categories: Stylize, Video, Still Image, High Dynamic Range, Built-In
 	///
@@ -1707,7 +1749,8 @@ public extension CIImage {
 	///
 	/// Transitions from one image to another by simulating the effect of a copy machine.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CICopyMachineTransition)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228304-copymachinetransition)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CICopyMachineTransition)
 	///
 	/// Categories: Transition, Video, Still Image, Built-In, High Dynamic Range
 	///
@@ -1747,7 +1790,7 @@ public extension CIImage {
 	///
 	/// Generates output image by applying input CoreML model to the input image.
 	///
-	/// ⚠️ No Apple Documentation available for 'CICoreMLModelFilter'
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228305-coremlmodel)
 	/// [WWDC Video](https://developer.apple.com/videos/play/wwdc2018-719/?time=2378)
 	///
 	/// Categories: Still Image, Built-In, Stylize
@@ -1771,14 +1814,15 @@ public extension CIImage {
 		return filter.outputImage ?? CIImage.empty()
 	}
 
-	// NOTE: CICrop already has a CIImage method: func cropped(to: CGRect) -> CIImage
+	// ℹ️ CICrop already has a CIImage method: func cropped(to: CGRect) -> CIImage
 
 
 	/// Crystallize
 	///
 	/// Creates polygon-shaped color blocks by aggregating source pixel-color values.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CICrystallize)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228306-crystallize)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CICrystallize)
 	///
 	/// Categories: Stylize, Video, Still Image, High Dynamic Range, Built-In
 	///
@@ -1803,7 +1847,8 @@ public extension CIImage {
 	///
 	/// Creates composite image samples by choosing the darker samples (from either the source image or the background). The result is that the background image samples are replaced by any source image samples that are darker. Otherwise, the background image samples are left unchanged.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIDarkenBlendMode)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228307-darkenblendmode)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIDarkenBlendMode)
 	///
 	/// Categories: Composite Operation, Video, Still Image, Interlaced, Non-Square Pixels, Built-In
 	///
@@ -1821,84 +1866,15 @@ public extension CIImage {
 		return filter.outputImage ?? CIImage.empty()
 	}
 
-	/// Depth Blur Effect
-	///
-	/// Applies a variable radius disc blur to an image where areas in the background are softened more than those in the foreground.
-	///
-	/// ⚠️ No Apple Documentation available for 'CIDepthBlurEffect'
-	/// [WWDC Video](https://devstreaming-cdn.apple.com/videos/wwdc/2017/508wdyl5rm2jy9z8/508/508_hd_image_editing_with_depth.mp4)
-	/// [WWDC Slides](https://devstreaming-cdn.apple.com/videos/wwdc/2017/508wdyl5rm2jy9z8/508/508_image_editing_with_depth.pdf)
-	///
-	/// Categories: Blur, Video, Still Image, Built-In, High Dynamic Range
-	///
-	///
-	/// - Parameters:
-	///   - disparityImage: Grayscale image indicating depth; lighter is nearer.
-	///   - matteImage: A matting image.
-	///   - hairImage: A segmentation matte image that corresponds to people’s hair.
-	///   - glassesImage: A segmentation matte image that corresponds to people’s glasses.
-	///   - gainMap: UNKNOWN
-	///   - aperture: Simulated lens aperature to adjust blur for unfocused elements (0...22)
-	///   - leftEyePositions: Vector of up to 4 x,y positions indicating where peoples' left eyes are
-	///   - rightEyePositions: Vector of up to 4 x,y positions indicating where peoples' right eyes are
-	///   - chinPositions: Vector of up to 4 x,y positions indicating where peoples' chins are
-	///   - nosePositions: Vector of up to 4 x,y positions indicating where peoples' noses are
-	///   - focusRectangle: Part of the rectangle to make sure to put into focus
-	///   - lumaNoiseScale: UNKNOWN (0...0.1)
-	///   - scaleFactor: Integrated downsampling (rather than doing it later) since this is computationally expensive
-	///   - calibrationData: UNKNOWN
-	///   - auxDataMetadata: UNKNOWN
-	///   - shape: UNKNOWN
-	///   - active: should this filter be applied
-	/// - Returns: processed new `CIImage`, or identity if `active` is false
-	@available(iOS 13, macOS 10.15, *)
-	func depthBlurEffect(disparityImage: CIImage,
-						 matteImage: CIImage,
-						 hairImage: CIImage,
-						 glassesImage: CIImage,
-						 gainMap: CIImage,
-						 aperture: Float = 0,
-						 leftEyePositions: CIVector = .init(x: -1, y: -1),
-						 rightEyePositions: CIVector = .init(x: -1, y: -1),
-						 chinPositions: CIVector = .init(x: -1, y: -1),
-						 nosePositions: CIVector = .init(x: -1, y: -1),
-						 focusRectangle: CIVector,
-						 lumaNoiseScale: Float = 0,
-						 scaleFactor: Float = 1,
-						 calibrationData: AVCameraCalibrationData,
-						 auxDataMetadata: CGImageMetadata,
-						 shape: String,
-						 active: Bool = true) -> CIImage {
-		guard active else { return self }
+	// ℹ️ CIDepthBlurEffect already has a CIImage method: func depthBlurEffectFilter(for...) — several variants exist -> CIImage
 
-		// Filter not included in CoreImage.CIFilterBuiltins; using dictionary-based method.
-		guard let filter = CIFilter(name: "CIDepthBlurEffect", parameters: [
-
-			"inputDisparityImage": disparityImage,
-			"inputMatteImage": matteImage,
-			"inputHairImage": hairImage,
-			"inputGlassesImage": glassesImage,
-			"inputGainMap": gainMap,
-			"inputAperture": aperture,
-			"inputLeftEyePositions": leftEyePositions,
-			"inputRightEyePositions": rightEyePositions,
-			"inputChinPositions": chinPositions,
-			"inputNosePositions": nosePositions,
-			"inputFocusRect": focusRectangle,
-			"inputLumaNoiseScale": lumaNoiseScale,
-			"inputScaleFactor": scaleFactor,
-			"inputCalibrationData": calibrationData,
-			"inputAuxDataMetadata": auxDataMetadata,
-			"inputShape": shape,
-		]) else { return self }
-		return filter.outputImage ?? CIImage.empty()
-	}
 
 	/// Depth of Field
 	///
 	/// Simulates miniaturization effect created by Tilt & Shift lens by performing depth of field effects.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIDepthOfField)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228308-depthoffield)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIDepthOfField)
 	///
 	/// Categories: Stylize, Video, Still Image, Built-In
 	///
@@ -1937,7 +1913,7 @@ public extension CIImage {
 	///
 	/// Convert a depth data image to disparity data.
 	///
-	/// ⚠️ No Apple Documentation available for 'CIDepthToDisparity'
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228309-depthtodisparity)
 	///
 	/// Categories: Color Adjustment, Video, Still Image, Built-In
 	///
@@ -1959,7 +1935,8 @@ public extension CIImage {
 	///
 	/// Subtracts either the source image sample color from the background image sample color, or the reverse, depending on which sample has the greater brightness value. Source image sample values that are black produce no change; white inverts the background color values.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIDifferenceBlendMode)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228310-differenceblendmode)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIDifferenceBlendMode)
 	///
 	/// Categories: Composite Operation, Video, Still Image, Interlaced, Non-Square Pixels, Built-In
 	///
@@ -1981,7 +1958,8 @@ public extension CIImage {
 	///
 	/// Smooths an image using a disc-shaped convolution kernel.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIDiscBlur)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228311-discblur)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIDiscBlur)
 	///
 	/// Categories: Blur, Video, Still Image, Built-In, High Dynamic Range
 	///
@@ -2004,7 +1982,8 @@ public extension CIImage {
 	///
 	/// Transitions from one image to another using the shape defined by a mask.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIDisintegrateWithMaskTransition)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228312-disintegratewithmasktransition)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIDisintegrateWithMaskTransition)
 	///
 	/// Categories: Transition, Video, Still Image, Built-In, High Dynamic Range
 	///
@@ -2041,7 +2020,7 @@ public extension CIImage {
 	///
 	/// Convert a disparity data image to depth data.
 	///
-	/// ⚠️ No Apple Documentation available for 'CIDisparityToDepth'
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228313-disparitytodepth)
 	///
 	/// Categories: Color Adjustment, Video, Still Image, Built-In
 	///
@@ -2063,7 +2042,8 @@ public extension CIImage {
 	///
 	/// Applies the grayscale values of the second image to the first image. The output image has a texture defined by the grayscale values.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIDisplacementDistortion)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/4401863-displacementdistortion)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIDisplacementDistortion)
 	///
 	/// Categories: Distortion Effect, Video, Still Image, Built-In, High Dynamic Range
 	///
@@ -2087,7 +2067,8 @@ public extension CIImage {
 	///
 	/// Uses a dissolve to transition from one image to another.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIDissolveTransition)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228314-dissolvetransition)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIDissolveTransition)
 	///
 	/// Categories: Transition, Video, Still Image, Interlaced, Non-Square Pixels, Built-In, High Dynamic Range
 	///
@@ -2112,7 +2093,7 @@ public extension CIImage {
 	///
 	/// Apply dithering to an image. This operation is usually performed in a perceptual color space.
 	///
-	/// ⚠️ No Apple Documentation available for 'CIDither'
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228315-dither)
 	///
 	/// Categories: Color Effect, Video, Still Image, High Dynamic Range, Built-In
 	///
@@ -2134,7 +2115,8 @@ public extension CIImage {
 	///
 	/// Divides the background image sample color from the source image sample color.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIDivideBlendMode)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228316-divideblendmode)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIDivideBlendMode)
 	///
 	/// Categories: Composite Operation, Video, Still Image, Interlaced, Non-Square Pixels, Built-In
 	///
@@ -2156,7 +2138,7 @@ public extension CIImage {
 	///
 	/// Enhance a document image by removing unwanted shadows, whitening the background, and enhancing contrast.
 	///
-	/// ⚠️ No Apple Documentation available for 'CIDocumentEnhancer'
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228317-documentenhancer)
 	///
 	/// Categories: Color Effect, Non-Square Pixels, Still Image, Built-In
 	///
@@ -2179,7 +2161,8 @@ public extension CIImage {
 	///
 	/// Simulates the dot patterns of a halftone screen.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIDotScreen)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228318-dotscreen)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIDotScreen)
 	///
 	/// Categories: Halftone Effect, Video, Still Image, Built-In
 	///
@@ -2207,7 +2190,8 @@ public extension CIImage {
 	///
 	/// Recursively draws a portion of an image in imitation of an M. C. Escher drawing.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIDroste)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/4401864-droste)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIDroste)
 	///
 	/// Categories: Distortion Effect, Video, Still Image, Built-In, High Dynamic Range
 	///
@@ -2246,7 +2230,7 @@ public extension CIImage {
 	///
 	/// Upsamples a small image to the size of the input image using the luminance of the input image as a guide to preserve detail.
 	///
-	/// ⚠️ No Apple Documentation available for 'CIEdgePreserveUpsampleFilter'
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228319-edgepreserveupsample)
 	///
 	/// Categories: Geometry Adjustment, Video, Still Image, Interlaced, Non-Square Pixels, Built-In, High Dynamic Range
 	///
@@ -2276,7 +2260,8 @@ public extension CIImage {
 	///
 	/// Produces a stylized black-and-white rendition of an image that looks similar to a woodblock cutout.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIEdgeWork)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228320-edgework)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIEdgeWork)
 	///
 	/// Categories: Stylize, Video, Still Image, Built-In
 	///
@@ -2299,7 +2284,8 @@ public extension CIImage {
 	///
 	/// Finds all edges in an image and displays them in color.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIEdges)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228321-edges)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIEdges)
 	///
 	/// Categories: Stylize, Video, Still Image, High Dynamic Range, Built-In
 	///
@@ -2321,7 +2307,8 @@ public extension CIImage {
 	///
 	/// Produces a tiled image from a source image by applying an 8-way reflected symmetry.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIEightfoldReflectedTile)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228322-eightfoldreflectedtile)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIEightfoldReflectedTile)
 	///
 	/// Categories: Tile Effect, Video, Still Image, Built-In, High Dynamic Range
 	///
@@ -2347,7 +2334,8 @@ public extension CIImage {
 	///
 	/// Produces an effect similar to that produced by the “Difference Blend Mode” filter but with lower contrast. Source image sample values that are black do not produce a change; white inverts the background color values.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIExclusionBlendMode)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228323-exclusionblendmode)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIExclusionBlendMode)
 	///
 	/// Categories: Composite Operation, Video, Still Image, Interlaced, Non-Square Pixels, Built-In
 	///
@@ -2369,7 +2357,8 @@ public extension CIImage {
 	///
 	/// Adjusts the exposure setting for an image similar to the way you control exposure for a camera when you change the F-stop.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIExposureAdjust)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228324-exposureadjust)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIExposureAdjust)
 	///
 	/// Categories: Color Adjustment, Video, Still Image, Interlaced, Non-Square Pixels, High Dynamic Range, Built-In, CICategoryXMPSerializable
 	///
@@ -2391,7 +2380,8 @@ public extension CIImage {
 	///
 	/// Maps luminance to a color ramp of two colors. False color is often used to process astronomical and other scientific data, such as ultraviolet and X-ray images.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIFalseColor)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228325-falsecolor)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIFalseColor)
 	///
 	/// Categories: Color Effect, Video, Interlaced, Non-Square Pixels, Still Image, High Dynamic Range, Built-In
 	///
@@ -2416,7 +2406,8 @@ public extension CIImage {
 	///
 	/// Transitions from one image to another by creating a flash. The flash originates from a point you specify. Small at first, it rapidly expands until the image frame is completely filled with the flash color. As the color fades, the target image begins to appear.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIFlashTransition)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228326-flashtransition)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIFlashTransition)
 	///
 	/// Categories: Transition, Video, Still Image, Built-In, High Dynamic Range
 	///
@@ -2464,7 +2455,8 @@ public extension CIImage {
 	///
 	/// Produces a tiled image from a source image by applying a 4-way reflected symmetry.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIFourfoldReflectedTile)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228327-fourfoldreflectedtile)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIFourfoldReflectedTile)
 	///
 	/// Categories: Tile Effect, Video, Still Image, Built-In, High Dynamic Range
 	///
@@ -2492,7 +2484,8 @@ public extension CIImage {
 	///
 	/// Produces a tiled image from a source image by rotating the source image at increments of 90 degrees.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIFourfoldRotatedTile)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228328-fourfoldrotatedtile)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIFourfoldRotatedTile)
 	///
 	/// Categories: Tile Effect, Video, Still Image, Built-In, High Dynamic Range
 	///
@@ -2518,7 +2511,8 @@ public extension CIImage {
 	///
 	/// Produces a tiled image from a source image by applying 4 translation operations.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIFourfoldTranslatedTile)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228329-fourfoldtranslatedtile)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIFourfoldTranslatedTile)
 	///
 	/// Categories: Tile Effect, Video, Still Image, Built-In, High Dynamic Range
 	///
@@ -2546,7 +2540,7 @@ public extension CIImage {
 	///
 	/// Applies multichannel 5 by 5 Gabor gradient filter to an image. The resulting image has maximum horizontal gradient in the red channel and the maximum vertical gradient in the green channel. The gradient values can be positive or negative.
 	///
-	/// ⚠️ No Apple Documentation available for 'CIGaborGradients'
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3325508-gaborgradients)
 	///
 	/// Categories: Stylize, Video, Still Image, High Dynamic Range, Built-In
 	///
@@ -2568,7 +2562,8 @@ public extension CIImage {
 	///
 	/// Adjusts midtone brightness. This filter is typically used to compensate for nonlinear effects of displays. Adjusting the gamma effectively changes the slope of the transition between black and white.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIGammaAdjust)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228330-gammaadjust)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIGammaAdjust)
 	///
 	/// Categories: Color Adjustment, Video, Still Image, Interlaced, Non-Square Pixels, High Dynamic Range, Built-In
 	///
@@ -2590,7 +2585,8 @@ public extension CIImage {
 	///
 	/// Spreads source pixels by an amount specified by a Gaussian distribution.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIGaussianBlur)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228331-gaussianblur)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIGaussianBlur)
 	///
 	/// Categories: Blur, Still Image, Video, Built-In, High Dynamic Range
 	///
@@ -2612,7 +2608,8 @@ public extension CIImage {
 	///
 	/// Distorts an image by applying a glass-like texture. The raised portions of the output image are the result of applying a texture map.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIGlassDistortion)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/4401865-glassdistortion)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIGlassDistortion)
 	///
 	/// Categories: Distortion Effect, Video, Still Image, Built-In, High Dynamic Range
 	///
@@ -2638,7 +2635,8 @@ public extension CIImage {
 	///
 	/// Creates a lozenge-shaped lens and distorts the portion of the image over which the lens is placed.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIGlassLozenge)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/4401866-glasslozenge)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIGlassLozenge)
 	///
 	/// Categories: Distortion Effect, Video, Still Image, Built-In, High Dynamic Range
 	///
@@ -2666,7 +2664,8 @@ public extension CIImage {
 	///
 	/// Produces a tiled image from a source image by translating and smearing the image.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIGlideReflectedTile)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228333-glidereflectedtile)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIGlideReflectedTile)
 	///
 	/// Categories: Tile Effect, Video, Still Image, Built-In, High Dynamic Range
 	///
@@ -2692,7 +2691,8 @@ public extension CIImage {
 	///
 	/// Dulls the highlights of an image.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIGloom)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228334-gloom)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIGloom)
 	///
 	/// Categories: Stylize, Video, Still Image, High Dynamic Range, Built-In
 	///
@@ -2716,7 +2716,7 @@ public extension CIImage {
 	///
 	/// Upsamples a small image to the size of the guide image using the content of the guide to preserve detail.
 	///
-	/// ⚠️ No Apple Documentation available for 'CIGuidedFilter'
+	/// ⚠️ No documentation available for CIGuidedFilter
 	///
 	/// Categories: Geometry Adjustment, Video, Still Image, Built-In, High Dynamic Range
 	///
@@ -2748,7 +2748,8 @@ public extension CIImage {
 	///
 	/// Either multiplies or screens colors, depending on the source image sample color. If the source image sample color is lighter than 50% gray, the background is lightened, similar to screening. If the source image sample color is darker than 50% gray, the background is darkened, similar to multiplying. If the source image sample color is equal to 50% gray, the source image is not changed. Image samples that are equal to pure black or pure white result in pure black or white. The overall effect is similar to what you would achieve by shining a harsh spotlight on the source image.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIHardLightBlendMode)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228335-hardlightblendmode)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIHardLightBlendMode)
 	///
 	/// Categories: Composite Operation, Video, Still Image, Interlaced, Non-Square Pixels, Built-In
 	///
@@ -2770,7 +2771,8 @@ public extension CIImage {
 	///
 	/// Simulates the hatched pattern of a halftone screen.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIHatchedScreen)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228336-hatchedscreen)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIHatchedScreen)
 	///
 	/// Categories: Halftone Effect, Video, Still Image, Built-In
 	///
@@ -2798,7 +2800,8 @@ public extension CIImage {
 	///
 	/// Produces a continuous three-dimensional, loft-shaped height field from a grayscale mask. The white values of the mask define those pixels that are inside the height field while the black values define those pixels that are outside. The field varies smoothly and continuously inside the mask, reaching the value 0 at the edge of the mask. You can use this filter with the Shaded Material filter to produce extremely realistic shaded objects.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIHeightFieldFromMask)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228337-heightfieldfrommask)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIHeightFieldFromMask)
 	///
 	/// Categories: Stylize, Video, Still Image, Built-In
 	///
@@ -2821,7 +2824,8 @@ public extension CIImage {
 	///
 	/// Displays an image as colored hexagons whose color is an average of the pixels they replace.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIHexagonalPixellate)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228338-hexagonalpixellate)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIHexagonalPixellate)
 	///
 	/// Categories: Stylize, Video, Still Image, High Dynamic Range, Built-In
 	///
@@ -2846,7 +2850,8 @@ public extension CIImage {
 	///
 	/// Adjust the tonal mapping of an image while preserving spatial detail.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIHighlightShadowAdjust)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228339-highlightshadowadjust)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIHighlightShadowAdjust)
 	///
 	/// Categories: Stylize, Video, Still Image, High Dynamic Range, Built-In
 	///
@@ -2872,7 +2877,8 @@ public extension CIImage {
 	///
 	/// Generates a displayable histogram image from the output of the “Area Histogram” filter.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIHistogramDisplayFilter)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3547122-histogramdisplay)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIHistogramDisplayFilter)
 	///
 	/// Categories: Reduction, Video, Still Image, Built-In
 	///
@@ -2899,7 +2905,8 @@ public extension CIImage {
 	///
 	/// Creates a circular area that pushes the image pixels outward, distorting those pixels closest to the circle the most.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIHoleDistortion)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/4401867-holedistortion)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIHoleDistortion)
 	///
 	/// Categories: Distortion Effect, Video, Still Image, Built-In, High Dynamic Range
 	///
@@ -2924,7 +2931,8 @@ public extension CIImage {
 	///
 	/// Changes the overall hue, or tint, of the source pixels.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIHueAdjust)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228340-hueadjust)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIHueAdjust)
 	///
 	/// Categories: Color Adjustment, Video, Still Image, Interlaced, Non-Square Pixels, High Dynamic Range, Built-In
 	///
@@ -2946,7 +2954,8 @@ public extension CIImage {
 	///
 	/// Uses the luminance and saturation values of the background image with the hue of the input image.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIHueBlendMode)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228341-hueblendmode)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIHueBlendMode)
 	///
 	/// Categories: Composite Operation, Video, Still Image, Interlaced, Non-Square Pixels, Built-In
 	///
@@ -2968,7 +2977,7 @@ public extension CIImage {
 	///
 	/// Create a palette of the most common colors found in the image.
 	///
-	/// ⚠️ No Apple Documentation available for 'CIKMeans'
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3547110-kmeans)
 	///
 	/// Categories: Reduction, Video, Still Image, High Dynamic Range, Built-In
 	///
@@ -3004,7 +3013,8 @@ public extension CIImage {
 	///
 	/// Produces a kaleidoscopic image from a source image by applying 12-way symmetry.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIKaleidoscope)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228343-kaleidoscope)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIKaleidoscope)
 	///
 	/// Categories: Tile Effect, Video, Still Image, Built-In, High Dynamic Range
 	///
@@ -3030,7 +3040,7 @@ public extension CIImage {
 	///
 	/// Apply keystone correction to an image with combined horizontal and vertical guides.
 	///
-	/// ⚠️ No Apple Documentation available for 'CIKeystoneCorrectionCombined'
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3325509-keystonecorrectioncombined)
 	///
 	/// Categories: Geometry Adjustment, Video, Still Image, Built-In, High Dynamic Range
 	///
@@ -3066,7 +3076,7 @@ public extension CIImage {
 	///
 	/// Apply horizontal keystone correction to an image with guides.
 	///
-	/// ⚠️ No Apple Documentation available for 'CIKeystoneCorrectionHorizontal'
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3325510-keystonecorrectionhorizontal)
 	///
 	/// Categories: Geometry Adjustment, Video, Still Image, Built-In, High Dynamic Range
 	///
@@ -3102,7 +3112,7 @@ public extension CIImage {
 	///
 	/// Apply vertical keystone correction to an image with guides.
 	///
-	/// ⚠️ No Apple Documentation available for 'CIKeystoneCorrectionVertical'
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3325511-keystonecorrectionvertical)
 	///
 	/// Categories: Geometry Adjustment, Video, Still Image, Built-In, High Dynamic Range
 	///
@@ -3138,7 +3148,7 @@ public extension CIImage {
 	///
 	/// Produces an image with the Lab ∆E difference values between two images. The result image will contain ∆E 1994 values between 0.0 and 100.0 where 2.0 is considered a just noticeable difference.
 	///
-	/// ⚠️ No Apple Documentation available for 'CILabDeltaE'
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228260-labdeltae)
 	///
 	/// Categories: Color Effect, Video, Interlaced, Non-Square Pixels, Still Image, Built-In
 	///
@@ -3161,7 +3171,8 @@ public extension CIImage {
 	///
 	/// Produces a high-quality, scaled version of a source image. You typically use this filter to scale down an image.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CILanczosScaleTransform)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228344-lanczosscaletransform)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CILanczosScaleTransform)
 	///
 	/// Categories: Geometry Adjustment, Video, Still Image, Built-In, High Dynamic Range
 	///
@@ -3185,7 +3196,8 @@ public extension CIImage {
 	///
 	/// Rotates a portion of the input image specified by the center and radius parameters to give a tunneling effect.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CILightTunnel)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/4401868-lighttunnel)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CILightTunnel)
 	///
 	/// Categories: Distortion Effect, Video, Still Image, Built-In, High Dynamic Range
 	///
@@ -3211,7 +3223,8 @@ public extension CIImage {
 	///
 	/// Creates composite image samples by choosing the lighter samples (either from the source image or the background). The result is that the background image samples are replaced by any source image samples that are lighter. Otherwise, the background image samples are left unchanged.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CILightenBlendMode)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228346-lightenblendmode)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CILightenBlendMode)
 	///
 	/// Categories: Composite Operation, Video, Still Image, Interlaced, Non-Square Pixels, Built-In
 	///
@@ -3233,7 +3246,8 @@ public extension CIImage {
 	///
 	/// Creates a sketch that outlines the edges of an image in black, leaving the non-outlined portions of the image transparent. The result has alpha and is rendered in black, so it won’t look like much until you render it over another image using source over compositing.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CILineOverlay)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228347-lineoverlay)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CILineOverlay)
 	///
 	/// Categories: Built-In, Still Image, Video, Stylize
 	///
@@ -3267,7 +3281,8 @@ public extension CIImage {
 	///
 	/// Simulates the line pattern of a halftone screen.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CILineScreen)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228348-linescreen)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CILineScreen)
 	///
 	/// Categories: Halftone Effect, Video, Still Image, Built-In
 	///
@@ -3295,7 +3310,8 @@ public extension CIImage {
 	///
 	/// Inverts the unpremultiplied source and background image sample color, inverts the sum, and then blends the result with the background according to the PDF basic compositing formula. Source image values that are white produce no change. Source image values that are black invert the background color values.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CILinearBurnBlendMode)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228349-linearburnblendmode)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CILinearBurnBlendMode)
 	///
 	/// Categories: Composite Operation, Video, Still Image, Interlaced, Non-Square Pixels, Built-In
 	///
@@ -3317,7 +3333,8 @@ public extension CIImage {
 	///
 	/// Unpremultiplies the source and background image sample colors, adds them, and then blends the result with the background according to the PDF basic compositing formula. Source image values that are black produces output that is the same as the background. Source image values that are non-black brighten the background color values.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CILinearDodgeBlendMode)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228350-lineardodgeblendmode)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CILinearDodgeBlendMode)
 	///
 	/// Categories: Composite Operation, Video, Still Image, Interlaced, Non-Square Pixels, Built-In
 	///
@@ -3339,7 +3356,7 @@ public extension CIImage {
 	///
 	/// A blend mode that is a combination of linear burn and linear dodge blend modes.
 	///
-	/// ⚠️ No Apple Documentation available for 'CILinearLightBlendMode'
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/4401869-linearlightblendmode)
 	///
 	/// Categories: Composite Operation, Video, Still Image, Interlaced, Non-Square Pixels, Built-In
 	///
@@ -3361,7 +3378,8 @@ public extension CIImage {
 	///
 	/// Maps color intensity from a linear gamma curve to the sRGB color space.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CILinearToSRGBToneCurve)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228352-lineartosrgbtonecurve)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CILinearToSRGBToneCurve)
 	///
 	/// Categories: Color Adjustment, Video, Still Image, Interlaced, Non-Square Pixels, High Dynamic Range, Built-In
 	///
@@ -3383,7 +3401,8 @@ public extension CIImage {
 	///
 	/// Uses the hue and saturation of the background with the luminance of the source image. This mode creates an effect that is inverse to the effect created by the “Color Blend Mode” filter.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CILuminosityBlendMode)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228353-luminosityblendmode)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CILuminosityBlendMode)
 	///
 	/// Categories: Composite Operation, Video, Still Image, Interlaced, Non-Square Pixels, Built-In
 	///
@@ -3405,7 +3424,8 @@ public extension CIImage {
 	///
 	/// Converts a grayscale image to a white image that is masked by alpha. The white values from the source image produce the inside of the mask; the black values become completely transparent.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIMaskToAlpha)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228354-masktoalpha)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIMaskToAlpha)
 	///
 	/// Categories: Color Effect, Video, Interlaced, Non-Square Pixels, Still Image, Built-In
 	///
@@ -3427,7 +3447,8 @@ public extension CIImage {
 	///
 	/// Blurs the source image according to the brightness levels in a mask image.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIMaskedVariableBlur)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228355-maskedvariableblur)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIMaskedVariableBlur)
 	///
 	/// Categories: Blur, Still Image, Video, Built-In, High Dynamic Range
 	///
@@ -3451,7 +3472,8 @@ public extension CIImage {
 	///
 	/// Converts an image to grayscale using the maximum of the three color components.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIMaximumComponent)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228356-maximumcomponent)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIMaximumComponent)
 	///
 	/// Categories: Color Effect, Video, Interlaced, Non-Square Pixels, Still Image, High Dynamic Range, Built-In
 	///
@@ -3473,7 +3495,8 @@ public extension CIImage {
 	///
 	/// Computes the maximum value, by color component, of two input images and creates an output image using the maximum values. This is similar to dodging.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIMaximumCompositing)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228357-maximumcompositing)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIMaximumCompositing)
 	///
 	/// Categories: Composite Operation, Video, Still Image, Interlaced, Non-Square Pixels, High Dynamic Range, Built-In
 	///
@@ -3495,7 +3518,7 @@ public extension CIImage {
 	///
 	/// Produces a scaled version of a source image that uses the maximum of neighboring pixels instead of linear averaging.
 	///
-	/// ⚠️ No Apple Documentation available for 'CIMaximumScaleTransform'
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/4401870-maximumscaletransform)
 	///
 	/// Categories: Geometry Adjustment, Video, Still Image, Built-In, High Dynamic Range
 	///
@@ -3519,7 +3542,8 @@ public extension CIImage {
 	///
 	/// Computes the median value for a group of neighboring pixels and replaces each pixel value with the median. The effect is to reduce noise.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIMedianFilter)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228358-median)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIMedianFilter)
 	///
 	/// Categories: Blur, Still Image, Video, Built-In, High Dynamic Range
 	///
@@ -3541,7 +3565,8 @@ public extension CIImage {
 	///
 	/// Converts an image to grayscale using the minimum of the three color components.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIMinimumComponent)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228360-minimumcomponent)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIMinimumComponent)
 	///
 	/// Categories: Color Effect, Video, Interlaced, Non-Square Pixels, Still Image, High Dynamic Range, Built-In
 	///
@@ -3563,7 +3588,8 @@ public extension CIImage {
 	///
 	/// Computes the minimum value, by color component, of two input images and creates an output image using the minimum values. This is similar to burning.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIMinimumCompositing)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228361-minimumcompositing)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIMinimumCompositing)
 	///
 	/// Categories: Composite Operation, Video, Still Image, Interlaced, Non-Square Pixels, High Dynamic Range, Built-In
 	///
@@ -3585,7 +3611,7 @@ public extension CIImage {
 	///
 	/// Uses an amount parameter to interpolate between an image and a background image. When value is 0.0 or less, the result is the background image. When the value is 1.0 or more, the result is the image.
 	///
-	/// ⚠️ No Apple Documentation available for 'CIMix'
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228362-mix)
 	///
 	/// Categories: Stylize, Video, Still Image, High Dynamic Range, Built-In
 	///
@@ -3609,7 +3635,8 @@ public extension CIImage {
 	///
 	/// Transitions from one image to another by revealing the target image through irregularly shaped holes.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIModTransition)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228363-modtransition)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIModTransition)
 	///
 	/// Categories: Transition, Video, Still Image, Built-In, High Dynamic Range
 	///
@@ -3646,7 +3673,7 @@ public extension CIImage {
 	///
 	/// Finds the edges of an image by returning the difference between the morphological minimum and maximum operations to the image.
 	///
-	/// ⚠️ No Apple Documentation available for 'CIMorphologyGradient'
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228364-morphologygradient)
 	///
 	/// Categories: Blur, Video, Still Image, Built-In, High Dynamic Range
 	///
@@ -3668,7 +3695,7 @@ public extension CIImage {
 	///
 	/// Lightens areas of an image by applying a circular morphological maximum operation to the image.
 	///
-	/// ⚠️ No Apple Documentation available for 'CIMorphologyMaximum'
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228365-morphologymaximum)
 	///
 	/// Categories: Blur, Video, Still Image, Built-In, High Dynamic Range
 	///
@@ -3690,7 +3717,7 @@ public extension CIImage {
 	///
 	/// Darkens areas of an image by applying a circular morphological maximum operation to the image.
 	///
-	/// ⚠️ No Apple Documentation available for 'CIMorphologyMinimum'
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228366-morphologyminimum)
 	///
 	/// Categories: Blur, Video, Still Image, Built-In, High Dynamic Range
 	///
@@ -3712,7 +3739,7 @@ public extension CIImage {
 	///
 	/// Lightens areas of an image by applying a rectangular morphological maximum operation to the image.
 	///
-	/// ⚠️ No Apple Documentation available for 'CIMorphologyRectangleMaximum'
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228367-morphologyrectanglemaximum)
 	///
 	/// Categories: Blur, Video, Still Image, Built-In, High Dynamic Range
 	///
@@ -3737,7 +3764,7 @@ public extension CIImage {
 	///
 	/// Darkens areas of an image by applying a rectangular morphological maximum operation to the image.
 	///
-	/// ⚠️ No Apple Documentation available for 'CIMorphologyRectangleMinimum'
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228368-morphologyrectangleminimum)
 	///
 	/// Categories: Blur, Video, Still Image, Built-In, High Dynamic Range
 	///
@@ -3762,7 +3789,8 @@ public extension CIImage {
 	///
 	/// Blurs an image to simulate the effect of using a camera that moves a specified angle and distance while capturing the image.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIMotionBlur)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228369-motionblur)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIMotionBlur)
 	///
 	/// Categories: Blur, Still Image, Video, Built-In, High Dynamic Range
 	///
@@ -3786,7 +3814,8 @@ public extension CIImage {
 	///
 	/// Multiplies the source image samples with the background image samples. This results in colors that are at least as dark as either of the two contributing sample colors.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIMultiplyBlendMode)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228370-multiplyblendmode)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIMultiplyBlendMode)
 	///
 	/// Categories: Composite Operation, Video, Still Image, Interlaced, Non-Square Pixels, Built-In
 	///
@@ -3808,7 +3837,8 @@ public extension CIImage {
 	///
 	/// Multiplies the color component of two input images and creates an output image using the multiplied values. This filter is typically used to add a spotlight or similar lighting effect to an image.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIMultiplyCompositing)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228371-multiplycompositing)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIMultiplyCompositing)
 	///
 	/// Categories: Composite Operation, Video, Still Image, Interlaced, Non-Square Pixels, High Dynamic Range, Built-In
 	///
@@ -3830,7 +3860,7 @@ public extension CIImage {
 	///
 	/// Distorts an image by stretching an image based on two input breakpoints.
 	///
-	/// ⚠️ No Apple Documentation available for 'CINinePartStretched'
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/4401871-ninepartstretched)
 	///
 	/// Categories: Distortion Effect, Video, Still Image, Built-In, High Dynamic Range
 	///
@@ -3860,7 +3890,7 @@ public extension CIImage {
 	///
 	/// Distorts an image by tiling an image based on two input breakpoints.
 	///
-	/// ⚠️ No Apple Documentation available for 'CINinePartTiled'
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/4401872-nineparttiled)
 	///
 	/// Categories: Distortion Effect, Video, Still Image, Built-In, High Dynamic Range
 	///
@@ -3893,7 +3923,8 @@ public extension CIImage {
 	///
 	/// Reduces noise using a threshold value to define what is considered noise. Small changes in luminance below that value are considered noise and get a noise reduction treatment, which is a local blur. Changes above the threshold value are considered edges, so they are sharpened.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CINoiseReduction)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228372-noisereduction)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CINoiseReduction)
 	///
 	/// Categories: Blur, Video, Still Image, Built-In, High Dynamic Range
 	///
@@ -3917,7 +3948,8 @@ public extension CIImage {
 	///
 	/// Segments an image, applying any specified scaling and rotation, and then assembles the image again to give an op art appearance.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIOpTile)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228373-optile)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIOpTile)
 	///
 	/// Categories: Tile Effect, Video, Still Image, Built-In, High Dynamic Range
 	///
@@ -3945,7 +3977,8 @@ public extension CIImage {
 	///
 	/// Either multiplies or screens the source image samples with the background image samples, depending on the background color. The result is to overlay the existing image samples while preserving the highlights and shadows of the background. The background color mixes with the source image to reflect the lightness or darkness of the background.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIOverlayBlendMode)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228374-overlayblendmode)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIOverlayBlendMode)
 	///
 	/// Categories: Composite Operation, Video, Still Image, Interlaced, Non-Square Pixels, Built-In
 	///
@@ -3967,7 +4000,8 @@ public extension CIImage {
 	///
 	/// Transitions from one image to another by simulating a curling page, revealing the new image as the page curls.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIPageCurlTransition)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228375-pagecurltransition)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIPageCurlTransition)
 	///
 	/// Categories: Transition, Video, Still Image, Built-In, High Dynamic Range
 	///
@@ -4007,7 +4041,8 @@ public extension CIImage {
 	///
 	/// Transitions from one image to another by simulating a curling page, revealing the new image as the page curls.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIPageCurlWithShadowTransition)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228376-pagecurlwithshadowtransition)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIPageCurlWithShadowTransition)
 	///
 	/// Categories: Transition, Video, Still Image, Built-In, High Dynamic Range
 	///
@@ -4053,7 +4088,7 @@ public extension CIImage {
 	///
 	/// Calculate the mean (x,y) image coordinates of a color palette.
 	///
-	/// ⚠️ No Apple Documentation available for 'CIPaletteCentroid'
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228377-palettecentroid)
 	///
 	/// Categories: Color Effect, Video, Still Image, Built-In
 	///
@@ -4078,7 +4113,7 @@ public extension CIImage {
 	///
 	/// Paint an image from a color palette obtained using “CIKMeans“.
 	///
-	/// ⚠️ No Apple Documentation available for 'CIPalettize'
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228378-palettize)
 	///
 	/// Categories: Color Effect, Video, Still Image, Built-In
 	///
@@ -4103,7 +4138,8 @@ public extension CIImage {
 	///
 	/// Warps an image by reflecting it in a parallelogram, and then tiles the result.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIParallelogramTile)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228379-parallelogramtile)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIParallelogramTile)
 	///
 	/// Categories: Tile Effect, Video, Still Image, Built-In, High Dynamic Range
 	///
@@ -4131,7 +4167,7 @@ public extension CIImage {
 	///
 	/// Returns a segmentation mask that is red in the portions of an image that are likely to be persons. The returned image may have a different size and aspect ratio from the input image.
 	///
-	/// ⚠️ No Apple Documentation available for 'CIPersonSegmentation'
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/4401873-personsegmentation)
 	///
 	/// Categories: Video, Still Image, Built-In, Stylize
 	///
@@ -4154,7 +4190,8 @@ public extension CIImage {
 	///
 	/// Applies a perspective correction, transforming an arbitrary quadrilateral region in the source image to a rectangular output image.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIPerspectiveCorrection)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228380-perspectivecorrection)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIPerspectiveCorrection)
 	///
 	/// Categories: Geometry Adjustment, Still Image, Video, Built-In, High Dynamic Range
 	///
@@ -4190,7 +4227,7 @@ public extension CIImage {
 	///
 	/// Apply a homogenous rotation transform to an image.
 	///
-	/// ⚠️ No Apple Documentation available for 'CIPerspectiveRotate'
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3325512-perspectiverotate)
 	///
 	/// Categories: Geometry Adjustment, Video, Still Image, Built-In, High Dynamic Range
 	///
@@ -4218,7 +4255,8 @@ public extension CIImage {
 	///
 	/// Applies a perspective transform to an image and then tiles the result.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIPerspectiveTile)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228381-perspectivetile)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIPerspectiveTile)
 	///
 	/// Categories: Tile Effect, Video, Still Image, Built-In, High Dynamic Range
 	///
@@ -4251,7 +4289,8 @@ public extension CIImage {
 	///
 	/// Alters the geometry of an image to simulate the observer changing viewing position. You can use the perspective filter to skew an image.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIPerspectiveTransform)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228382-perspectivetransform)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIPerspectiveTransform)
 	///
 	/// Categories: Geometry Adjustment, Video, Still Image, Built-In, High Dynamic Range
 	///
@@ -4284,7 +4323,8 @@ public extension CIImage {
 	///
 	/// Alters the geometry of an image to simulate the observer changing viewing position. You can use the perspective filter to skew an image.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIPerspectiveTransformWithExtent)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228383-perspectivetransformwithextent)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIPerspectiveTransformWithExtent)
 	///
 	/// Categories: Geometry Adjustment, Video, Still Image, Built-In, High Dynamic Range
 	///
@@ -4320,7 +4360,8 @@ public extension CIImage {
 	///
 	/// Applies a preconfigured set of effects that imitate vintage photography film with exaggerated color.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIPhotoEffectChrome)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228384-photoeffectchrome)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIPhotoEffectChrome)
 	///
 	/// Categories: Color Effect, Video, Interlaced, Non-Square Pixels, Still Image, High Dynamic Range, Built-In, CICategoryXMPSerializable
 	///
@@ -4343,7 +4384,8 @@ public extension CIImage {
 	///
 	/// Applies a preconfigured set of effects that imitate vintage photography film with diminished color.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIPhotoEffectFade)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228385-photoeffectfade)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIPhotoEffectFade)
 	///
 	/// Categories: Color Effect, Video, Interlaced, Non-Square Pixels, Still Image, High Dynamic Range, Built-In, CICategoryXMPSerializable
 	///
@@ -4366,7 +4408,8 @@ public extension CIImage {
 	///
 	/// Applies a preconfigured set of effects that imitate vintage photography film with distorted colors.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIPhotoEffectInstant)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228386-photoeffectinstant)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIPhotoEffectInstant)
 	///
 	/// Categories: Color Effect, Video, Interlaced, Non-Square Pixels, Still Image, High Dynamic Range, Built-In, CICategoryXMPSerializable
 	///
@@ -4389,7 +4432,8 @@ public extension CIImage {
 	///
 	/// Applies a preconfigured set of effects that imitate black-and-white photography film with low contrast.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIPhotoEffectMono)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228387-photoeffectmono)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIPhotoEffectMono)
 	///
 	/// Categories: Color Effect, Video, Interlaced, Non-Square Pixels, Still Image, High Dynamic Range, Built-In, CICategoryXMPSerializable
 	///
@@ -4412,7 +4456,8 @@ public extension CIImage {
 	///
 	/// Applies a preconfigured set of effects that imitate black-and-white photography film with exaggerated contrast.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIPhotoEffectNoir)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228388-photoeffectnoir)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIPhotoEffectNoir)
 	///
 	/// Categories: Color Effect, Video, Interlaced, Non-Square Pixels, Still Image, High Dynamic Range, Built-In, CICategoryXMPSerializable
 	///
@@ -4435,7 +4480,8 @@ public extension CIImage {
 	///
 	/// Applies a preconfigured set of effects that imitate vintage photography film with emphasized cool colors.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIPhotoEffectProcess)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228389-photoeffectprocess)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIPhotoEffectProcess)
 	///
 	/// Categories: Color Effect, Video, Interlaced, Non-Square Pixels, Still Image, High Dynamic Range, Built-In, CICategoryXMPSerializable
 	///
@@ -4458,7 +4504,8 @@ public extension CIImage {
 	///
 	/// Applies a preconfigured set of effects that imitate black-and-white photography film without significantly altering contrast.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIPhotoEffectTonal)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228390-photoeffecttonal)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIPhotoEffectTonal)
 	///
 	/// Categories: Color Effect, Video, Interlaced, Non-Square Pixels, Still Image, High Dynamic Range, Built-In, CICategoryXMPSerializable
 	///
@@ -4481,7 +4528,8 @@ public extension CIImage {
 	///
 	/// Applies a preconfigured set of effects that imitate vintage photography film with emphasized warm colors.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIPhotoEffectTransfer)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228391-photoeffecttransfer)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIPhotoEffectTransfer)
 	///
 	/// Categories: Color Effect, Video, Interlaced, Non-Square Pixels, Still Image, High Dynamic Range, Built-In, CICategoryXMPSerializable
 	///
@@ -4504,7 +4552,8 @@ public extension CIImage {
 	///
 	/// Unpremultiplies the source and background image sample color, combines them according to the relative difference, and then blends the result with the background according to the PDF basic compositing formula. Source image values that are brighter than the destination will produce an output that is lighter than the destination. Source image values that are darker than the destination will produce an output that is darker than the destination.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIPinLightBlendMode)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228392-pinlightblendmode)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIPinLightBlendMode)
 	///
 	/// Categories: Composite Operation, Video, Still Image, Interlaced, Non-Square Pixels, Built-In
 	///
@@ -4526,7 +4575,8 @@ public extension CIImage {
 	///
 	/// Creates a rectangular-shaped area that pinches source pixels inward, distorting those pixels closest to the rectangle the most.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIPinchDistortion)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/4401874-pinchdistortion)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIPinchDistortion)
 	///
 	/// Categories: Distortion Effect, Video, Still Image, Built-In, High Dynamic Range
 	///
@@ -4552,7 +4602,8 @@ public extension CIImage {
 	///
 	/// Makes an image blocky by mapping the image to colored squares whose color is defined by the replaced pixels.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIPixellate)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228393-pixellate)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIPixellate)
 	///
 	/// Categories: Stylize, Video, Still Image, High Dynamic Range, Built-In
 	///
@@ -4577,7 +4628,8 @@ public extension CIImage {
 	///
 	/// Renders the source image in a pointillistic style.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIPointillize)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228394-pointillize)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIPointillize)
 	///
 	/// Categories: Stylize, Video, Still Image, High Dynamic Range, Built-In
 	///
@@ -4602,7 +4654,8 @@ public extension CIImage {
 	///
 	/// Transitions from one image to another by creating a circular wave that expands from the center point, revealing the new image in the wake of the wave.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIRippleTransition)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228397-rippletransition)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIRippleTransition)
 	///
 	/// Categories: Transition, Video, Still Image, Built-In, High Dynamic Range
 	///
@@ -4642,7 +4695,8 @@ public extension CIImage {
 	///
 	/// Calculates the average color for each row of the specified area in an image, returning the result in a 1D image.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIRowAverage)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3547123-rowaverage)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIRowAverage)
 	///
 	/// Categories: Reduction, Video, Still Image, High Dynamic Range, Built-In
 	///
@@ -4665,7 +4719,8 @@ public extension CIImage {
 	///
 	/// Maps color intensity from the sRGB color space to a linear gamma curve.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CISRGBToneCurveToLinear)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228398-srgbtonecurvetolinear)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CISRGBToneCurveToLinear)
 	///
 	/// Categories: Color Adjustment, Video, Still Image, Interlaced, Non-Square Pixels, High Dynamic Range, Built-In
 	///
@@ -4687,7 +4742,7 @@ public extension CIImage {
 	///
 	/// Generates output image as a saliency map of the input image.
 	///
-	/// ⚠️ No Apple Documentation available for 'CISaliencyMapFilter'
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228399-saliencymap)
 	///
 	/// Categories: Video, Still Image, Built-In, Stylize
 	///
@@ -4705,14 +4760,15 @@ public extension CIImage {
 		return filter.outputImage ?? CIImage.empty()
 	}
 
-	// NOTE: CISampleNearest already has a CIImage method: func samplingNearest() -> CIImage
+	// ℹ️ CISampleNearest already has a CIImage method: func samplingNearest() -> CIImage
 
 
 	/// Saturation Blend Mode
 	///
 	/// Uses the luminance and hue values of the background with the saturation of the source image. Areas of the background that have no saturation (that is, pure gray areas) do not produce a change.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CISaturationBlendMode)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228400-saturationblendmode)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CISaturationBlendMode)
 	///
 	/// Categories: Composite Operation, Video, Still Image, Interlaced, Non-Square Pixels, Built-In
 	///
@@ -4734,7 +4790,8 @@ public extension CIImage {
 	///
 	/// Multiplies the inverse of the source image samples with the inverse of the background image samples. This results in colors that are at least as light as either of the two contributing sample colors.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIScreenBlendMode)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228401-screenblendmode)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIScreenBlendMode)
 	///
 	/// Categories: Composite Operation, Video, Still Image, Interlaced, Non-Square Pixels, Built-In
 	///
@@ -4756,7 +4813,8 @@ public extension CIImage {
 	///
 	/// Maps the colors of an image to various shades of brown.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CISepiaTone)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228402-sepiatone)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CISepiaTone)
 	///
 	/// Categories: Color Effect, Video, Interlaced, Non-Square Pixels, Still Image, High Dynamic Range, Built-In, CICategoryXMPSerializable
 	///
@@ -4778,7 +4836,8 @@ public extension CIImage {
 	///
 	/// Produces a shaded image from a height field. The height field is defined to have greater heights with lighter shades, and lesser heights (lower areas) with darker shades. You can combine this filter with the “Height Field From Mask” filter to produce quick shadings of masks, such as text.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIShadedMaterial)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228403-shadedmaterial)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIShadedMaterial)
 	///
 	/// Categories: Stylize, Video, Still Image, High Dynamic Range, Built-In
 	///
@@ -4803,7 +4862,8 @@ public extension CIImage {
 	///
 	/// Increases image detail by sharpening. It operates on the luminance of the image; the chrominance of the pixels remains unaffected.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CISharpenLuminance)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228404-sharpenluminance)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CISharpenLuminance)
 	///
 	/// Categories: Sharpen, Video, Still Image, Built-In, High Dynamic Range
 	///
@@ -4827,7 +4887,8 @@ public extension CIImage {
 	///
 	/// Produces a tiled image from a source image by applying a 6-way reflected symmetry.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CISixfoldReflectedTile)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228405-sixfoldreflectedtile)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CISixfoldReflectedTile)
 	///
 	/// Categories: Tile Effect, Video, Still Image, Built-In, High Dynamic Range
 	///
@@ -4853,7 +4914,8 @@ public extension CIImage {
 	///
 	/// Produces a tiled image from a source image by rotating the source image at increments of 60 degrees.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CISixfoldRotatedTile)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228406-sixfoldrotatedtile)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CISixfoldRotatedTile)
 	///
 	/// Categories: Tile Effect, Video, Still Image, Built-In, High Dynamic Range
 	///
@@ -4879,7 +4941,7 @@ public extension CIImage {
 	///
 	/// Applies multichannel 3 by 3 Sobel gradient filter to an image. The resulting image has maximum horizontal gradient in the red channel and the maximum vertical gradient in the green channel. The gradient values can be positive or negative.
 	///
-	/// ⚠️ No Apple Documentation available for 'CISobelGradients'
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/4401876-sobelgradients)
 	///
 	/// Categories: Stylize, Video, Still Image, High Dynamic Range, Built-In
 	///
@@ -4901,7 +4963,8 @@ public extension CIImage {
 	///
 	/// Either darkens or lightens colors, depending on the source image sample color. If the source image sample color is lighter than 50% gray, the background is lightened, similar to dodging. If the source image sample color is darker than 50% gray, the background is darkened, similar to burning. If the source image sample color is equal to 50% gray, the background is not changed. Image samples that are equal to pure black or pure white produce darker or lighter areas, but do not result in pure black or white. The overall effect is similar to what you would achieve by shining a diffuse spotlight on the source image.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CISoftLightBlendMode)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228408-softlightblendmode)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CISoftLightBlendMode)
 	///
 	/// Categories: Composite Operation, Video, Still Image, Interlaced, Non-Square Pixels, Built-In
 	///
@@ -4923,7 +4986,8 @@ public extension CIImage {
 	///
 	/// Places the source image over the background image, then uses the luminance of the background image to determine what to show. The composite shows the background image and only those portions of the source image that are over visible parts of the background.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CISourceAtopCompositing)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228409-sourceatopcompositing)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CISourceAtopCompositing)
 	///
 	/// Categories: Composite Operation, Video, Still Image, Interlaced, Non-Square Pixels, High Dynamic Range, Built-In
 	///
@@ -4945,7 +5009,8 @@ public extension CIImage {
 	///
 	/// Uses the background image to define what to leave in the input image, effectively cropping the input image.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CISourceInCompositing)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228410-sourceincompositing)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CISourceInCompositing)
 	///
 	/// Categories: Composite Operation, Video, Still Image, Interlaced, Non-Square Pixels, High Dynamic Range, Built-In
 	///
@@ -4967,7 +5032,8 @@ public extension CIImage {
 	///
 	/// Uses the background image to define what to take out of the input image.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CISourceOutCompositing)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228411-sourceoutcompositing)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CISourceOutCompositing)
 	///
 	/// Categories: Composite Operation, Video, Still Image, Interlaced, Non-Square Pixels, High Dynamic Range, Built-In
 	///
@@ -4989,7 +5055,8 @@ public extension CIImage {
 	///
 	/// Places the input image over the input background image.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CISourceOverCompositing)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228412-sourceovercompositing)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CISourceOverCompositing)
 	///
 	/// Categories: Composite Operation, Video, Still Image, Interlaced, Non-Square Pixels, High Dynamic Range, Built-In
 	///
@@ -5011,7 +5078,8 @@ public extension CIImage {
 	///
 	/// Replaces one or more color ranges with spot colors.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CISpotColor)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228413-spotcolor)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CISpotColor)
 	///
 	/// Categories: Built-In, Still Image, Video, High Dynamic Range, Stylize
 	///
@@ -5068,7 +5136,8 @@ public extension CIImage {
 	///
 	/// Applies a directional spotlight effect to an image.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CISpotLight)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228414-spotlight)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CISpotLight)
 	///
 	/// Categories: Stylize, Video, Still Image, High Dynamic Range, Built-In
 	///
@@ -5102,7 +5171,8 @@ public extension CIImage {
 	///
 	/// Rotates a source image by the specified angle in radians. The image is then scaled and cropped so that the rotated image fits the extent of the input image.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIStraightenFilter)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228416-straighten)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIStraightenFilter)
 	///
 	/// Categories: Geometry Adjustment, Video, Still Image, Built-In, High Dynamic Range
 	///
@@ -5124,7 +5194,8 @@ public extension CIImage {
 	///
 	/// Distorts an image by stretching and or cropping it to fit a target size.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIStretchCrop)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/4401877-stretchcrop)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIStretchCrop)
 	///
 	/// Categories: Distortion Effect, Video, Still Image, Built-In, High Dynamic Range
 	///
@@ -5154,7 +5225,8 @@ public extension CIImage {
 	///
 	/// Unpremultiplies the source and background image sample colors, subtracts the source from the background, and then blends the result with the background according to the PDF basic compositing formula. Source image values that are black produces output that is the same as the background. Source image values that are non-black darken the background color values.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CISubtractBlendMode)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228418-subtractblendmode)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CISubtractBlendMode)
 	///
 	/// Categories: Composite Operation, Video, Still Image, Interlaced, Non-Square Pixels, Built-In
 	///
@@ -5176,7 +5248,8 @@ public extension CIImage {
 	///
 	/// Transitions from one image to another by simulating a swiping action.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CISwipeTransition)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228420-swipetransition)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CISwipeTransition)
 	///
 	/// Categories: Transition, Video, Still Image, Built-In, High Dynamic Range
 	///
@@ -5216,7 +5289,8 @@ public extension CIImage {
 	///
 	/// Adapts the reference white point for an image.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CITemperatureAndTint)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228421-temperatureandtint)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CITemperatureAndTint)
 	///
 	/// Categories: Color Adjustment, Video, Still Image, Interlaced, Non-Square Pixels, High Dynamic Range, Built-In
 	///
@@ -5241,7 +5315,7 @@ public extension CIImage {
 	///
 	/// Apply a “Thermal” style effect to an image.
 	///
-	/// ⚠️ No Apple Documentation available for 'CIThermal'
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228423-thermal)
 	///
 	/// Categories: Color Effect, Video, Interlaced, Non-Square Pixels, Still Image, Built-In
 	///
@@ -5263,7 +5337,8 @@ public extension CIImage {
 	///
 	/// Adjusts tone response of the R, G, and B channels of an image. The input points are five x,y values that are interpolated using a spline curve. The curve is applied in a perceptual (gamma 2) version of the working space.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIToneCurve)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228424-tonecurve)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIToneCurve)
 	///
 	/// Categories: Color Adjustment, Video, Still Image, Interlaced, Non-Square Pixels, Built-In
 	///
@@ -5297,7 +5372,7 @@ public extension CIImage {
 	///
 	/// Apply a global tone curve to an image that reduces colors from a source headroom value to a target headroom value.
 	///
-	/// ⚠️ No Apple Documentation available for 'CIToneMapHeadroom'
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/4401878-tonemapheadroom)
 	///
 	/// Categories: Color Adjustment, Video, Interlaced, High Dynamic Range, Non-Square Pixels, Still Image, Built-In
 	///
@@ -5322,7 +5397,8 @@ public extension CIImage {
 	///
 	/// Creates a torus-shaped lens and distorts the portion of the image over which the lens is placed.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CITorusLensDistortion)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/4401879-toruslensdistortion)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CITorusLensDistortion)
 	///
 	/// Categories: Distortion Effect, Video, Still Image, Built-In, High Dynamic Range
 	///
@@ -5350,7 +5426,8 @@ public extension CIImage {
 	///
 	/// Maps a triangular portion of image to a triangular area and then generates a kaleidoscope effect.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CITriangleKaleidoscope)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228425-trianglekaleidoscope)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CITriangleKaleidoscope)
 	///
 	/// Categories: Tile Effect, Video, Still Image, Built-In, High Dynamic Range
 	///
@@ -5383,7 +5460,8 @@ public extension CIImage {
 	///
 	/// Maps a triangular portion of image to a triangular area and then tiles the result.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CITriangleTile)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228426-triangletile)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CITriangleTile)
 	///
 	/// Categories: Tile Effect, Video, Still Image, Built-In, High Dynamic Range
 	///
@@ -5409,7 +5487,8 @@ public extension CIImage {
 	///
 	/// Produces a tiled image from a source image by rotating the source image at increments of 30 degrees.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CITwelvefoldReflectedTile)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228427-twelvefoldreflectedtile)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CITwelvefoldReflectedTile)
 	///
 	/// Categories: Tile Effect, Video, Still Image, Built-In, High Dynamic Range
 	///
@@ -5435,7 +5514,8 @@ public extension CIImage {
 	///
 	/// Rotates pixels around a point to give a twirling effect. You can specify the number of rotations as well as the center and radius of the effect.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CITwirlDistortion)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/4401880-twirldistortion)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CITwirlDistortion)
 	///
 	/// Categories: Distortion Effect, Video, Still Image, Built-In, High Dynamic Range
 	///
@@ -5461,7 +5541,8 @@ public extension CIImage {
 	///
 	/// Increases the contrast of the edges between pixels of different colors in an image.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIUnsharpMask)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228428-unsharpmask)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIUnsharpMask)
 	///
 	/// Categories: Sharpen, Video, Still Image, Built-In, High Dynamic Range
 	///
@@ -5485,7 +5566,8 @@ public extension CIImage {
 	///
 	/// Adjusts the saturation of an image while keeping pleasing skin tones.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIVibrance)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228429-vibrance)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIVibrance)
 	///
 	/// Categories: Color Adjustment, Video, Still Image, Interlaced, Non-Square Pixels, Built-In
 	///
@@ -5507,7 +5589,8 @@ public extension CIImage {
 	///
 	/// Applies a vignette shading to the corners of an image.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIVignette)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228431-vignette)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIVignette)
 	///
 	/// Categories: Color Effect, Video, Interlaced, Still Image, High Dynamic Range, Built-In
 	///
@@ -5531,7 +5614,8 @@ public extension CIImage {
 	///
 	/// Modifies the brightness of an image around the periphery of a specified region.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIVignetteEffect)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228430-vignetteeffect)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIVignetteEffect)
 	///
 	/// Categories: Color Effect, Video, Interlaced, Still Image, High Dynamic Range, Built-In
 	///
@@ -5559,7 +5643,7 @@ public extension CIImage {
 	///
 	/// A blend mode that is a combination of color burn and color dodge blend modes.
 	///
-	/// ⚠️ No Apple Documentation available for 'CIVividLightBlendMode'
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/4401881-vividlightblendmode)
 	///
 	/// Categories: Composite Operation, Video, Still Image, Interlaced, Non-Square Pixels, Built-In
 	///
@@ -5581,7 +5665,8 @@ public extension CIImage {
 	///
 	/// Rotates pixels around a point to simulate a vortex. You can specify the number of rotations as well the center and radius of the effect.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIVortexDistortion)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/4401882-vortexdistortion)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIVortexDistortion)
 	///
 	/// Categories: Distortion Effect, Video, Still Image, Built-In, High Dynamic Range
 	///
@@ -5607,7 +5692,8 @@ public extension CIImage {
 	///
 	/// Adjusts the reference white point for an image and maps all colors in the source using the new reference.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIWhitePointAdjust)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228432-whitepointadjust)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIWhitePointAdjust)
 	///
 	/// Categories: Color Adjustment, Video, Still Image, Interlaced, Non-Square Pixels, High Dynamic Range, Built-In
 	///
@@ -5629,7 +5715,7 @@ public extension CIImage {
 	///
 	/// Apply an “XRay” style effect to an image.
 	///
-	/// ⚠️ No Apple Documentation available for 'CIXRay'
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228433-xray)
 	///
 	/// Categories: Color Effect, Video, Interlaced, Non-Square Pixels, Still Image, Built-In
 	///
@@ -5651,7 +5737,8 @@ public extension CIImage {
 	///
 	/// Simulates the effect of zooming the camera while capturing the image.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIZoomBlur)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228434-zoomblur)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIZoomBlur)
 	///
 	/// Categories: Blur, Still Image, Video, Built-In, High Dynamic Range
 	///
@@ -5679,7 +5766,7 @@ public extension CIImage {
 	///
 	/// Generate an image attributed string.
 	///
-	/// ⚠️ No Apple Documentation available for 'CIAttributedTextImageGenerator'
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228267-attributedtextimagegenerator)
 	///
 	/// Categories: Generator, Video, Still Image, Built-In
 	///
@@ -5702,7 +5789,8 @@ public extension CIImage {
 	///
 	/// Generates an Aztec code (two-dimensional barcode) from input data.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIAztecCodeGenerator)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228268-azteccodegenerator)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIAztecCodeGenerator)
 	///
 	/// Categories: Generator, Still Image, Built-In
 	///
@@ -5727,7 +5815,7 @@ public extension CIImage {
 	///
 	/// Generate a barcode image from a CIBarcodeDescriptor.
 	///
-	/// ⚠️ No Apple Documentation available for 'CIBarcodeGenerator'
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228269-barcodegenerator)
 	///
 	/// Categories: Generator, Video, Still Image, Built-In
 	///
@@ -5746,7 +5834,7 @@ public extension CIImage {
 	///
 	/// Generates a blurred rectangle image with the specified extent, blur sigma, and color.
 	///
-	/// ⚠️ No Apple Documentation available for 'CIBlurredRectangleGenerator'
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/4401849-blurredrectanglegenerator)
 	///
 	/// Categories: Generator, Still Image, High Dynamic Range, Built-In
 	///
@@ -5769,7 +5857,8 @@ public extension CIImage {
 	///
 	/// Generates a pattern of squares of alternating colors. You can specify the size, colors, and the sharpness of the pattern.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CICheckerboardGenerator)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228279-checkerboardgenerator)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CICheckerboardGenerator)
 	///
 	/// Categories: Generator, Video, Still Image, High Dynamic Range, Built-In
 	///
@@ -5800,7 +5889,8 @@ public extension CIImage {
 	///
 	/// Generates a Code 128 one-dimensional barcode from input data.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CICode128BarcodeGenerator)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228281-code128barcodegenerator)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CICode128BarcodeGenerator)
 	///
 	/// Categories: Generator, Still Image, Built-In
 	///
@@ -5824,7 +5914,8 @@ public extension CIImage {
 	///
 	/// Generates a gradient that varies from one color to another using a Gaussian distribution.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIGaussianGradient)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228332-gaussiangradient)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIGaussianGradient)
 	///
 	/// Categories: Gradient, Video, Still Image, High Dynamic Range, Built-In
 	///
@@ -5852,7 +5943,7 @@ public extension CIImage {
 	///
 	/// Generates a color wheel that shows hues and saturations for a specified value.
 	///
-	/// ⚠️ No Apple Documentation available for 'CIHueSaturationValueGradient'
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228342-huesaturationvaluegradient)
 	///
 	/// Categories: Gradient, Video, Still Image, Built-In
 	///
@@ -5883,7 +5974,8 @@ public extension CIImage {
 	///
 	/// Simulates a halo that is generated by the diffraction associated with the spread of a lens. This filter is typically applied to another image to simulate lens flares and similar effects.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CILenticularHaloGenerator)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228345-lenticularhalogenerator)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CILenticularHaloGenerator)
 	///
 	/// Categories: Generator, Video, Still Image, High Dynamic Range, Built-In
 	///
@@ -5923,7 +6015,8 @@ public extension CIImage {
 	///
 	/// Generates a gradient that varies along a linear axis between two defined endpoints.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CILinearGradient)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228351-lineargradient)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CILinearGradient)
 	///
 	/// Categories: Gradient, Video, Still Image, High Dynamic Range, Built-In
 	///
@@ -5951,7 +6044,7 @@ public extension CIImage {
 	///
 	/// Generates a mesh from an array of line segments.
 	///
-	/// ⚠️ No Apple Documentation available for 'CIMeshGenerator'
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228359-meshgenerator)
 	///
 	/// Categories: Generator, Video, Still Image, High Dynamic Range, Built-In
 	///
@@ -5974,7 +6067,8 @@ public extension CIImage {
 	///
 	/// Generates a PDF417 code (two-dimensional barcode) from input data.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIPDF417BarcodeGenerator)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228261-pdf417barcodegenerator)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIPDF417BarcodeGenerator)
 	///
 	/// Categories: Generator, Video, Still Image, Built-In
 	///
@@ -6026,7 +6120,8 @@ public extension CIImage {
 	///
 	/// Generates a Quick Response code (two-dimensional barcode) from input data.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIQRCodeGenerator)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228262-qrcodegenerator)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIQRCodeGenerator)
 	///
 	/// Categories: Generator, Still Image, Built-In
 	///
@@ -6047,7 +6142,8 @@ public extension CIImage {
 	///
 	/// Generates a gradient that varies radially between two circles having the same center. It is valid for one of the two circles to have a radius of 0.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIRadialGradient)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228395-radialgradient)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIRadialGradient)
 	///
 	/// Categories: Gradient, Video, Still Image, High Dynamic Range, Built-In
 	///
@@ -6078,7 +6174,8 @@ public extension CIImage {
 	///
 	/// Generates an image of infinite extent whose pixel values are made up of four independent, uniformly-distributed random numbers in the 0 to 1 range.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIRandomGenerator)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228396-randomgenerator)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIRandomGenerator)
 	///
 	/// Categories: Generator, Video, Still Image, Built-In
 	///
@@ -6096,7 +6193,7 @@ public extension CIImage {
 	///
 	/// Generates a rounded rectangle image with the specified extent, corner radius, and color.
 	///
-	/// ⚠️ No Apple Documentation available for 'CIRoundedRectangleGenerator'
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3335007-roundedrectanglegenerator)
 	///
 	/// Categories: Generator, Still Image, High Dynamic Range, Built-In
 	///
@@ -6119,7 +6216,7 @@ public extension CIImage {
 	///
 	/// Generates a rounded rectangle stroke image with the specified extent, corner radius, stroke width, and color.
 	///
-	/// ⚠️ No Apple Documentation available for 'CIRoundedRectangleStrokeGenerator'
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/4401875-roundedrectanglestrokegenerator)
 	///
 	/// Categories: Generator, Still Image, High Dynamic Range, Built-In
 	///
@@ -6147,7 +6244,8 @@ public extension CIImage {
 	///
 	/// Generates a gradient that uses an S-curve function to blend colors along a linear axis between two defined endpoints.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CISmoothLinearGradient)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228407-smoothlineargradient)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CISmoothLinearGradient)
 	///
 	/// Categories: Gradient, Video, Still Image, High Dynamic Range, Built-In
 	///
@@ -6175,7 +6273,8 @@ public extension CIImage {
 	///
 	/// Generates a starburst pattern that is similar to a supernova; can be used to simulate a lens flare.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIStarShineGenerator)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228415-starshinegenerator)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIStarShineGenerator)
 	///
 	/// Categories: Generator, Video, Still Image, High Dynamic Range, Built-In
 	///
@@ -6215,7 +6314,8 @@ public extension CIImage {
 	///
 	/// Generates a stripe pattern. You can control the color of the stripes, the spacing, and the contrast.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIStripesGenerator)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228417-stripesgenerator)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CIStripesGenerator)
 	///
 	/// Categories: Generator, Video, Still Image, High Dynamic Range, Built-In
 	///
@@ -6246,7 +6346,8 @@ public extension CIImage {
 	///
 	/// Generates a sun effect. You typically use the output of the sunbeams filter as input to a composite filter.
 	///
-	/// [Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CISunbeamsGenerator)
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228419-sunbeamsgenerator)
+	/// [Classic Documentation](https://t.ly/Gyd6#//apple_ref/doc/filter/ci/CISunbeamsGenerator)
 	///
 	/// Categories: Generator, Video, Still Image, High Dynamic Range, Built-In
 	///
@@ -6283,7 +6384,7 @@ public extension CIImage {
 	///
 	/// Generate an image from a string and font information.
 	///
-	/// ⚠️ No Apple Documentation available for 'CITextImageGenerator'
+	/// [Documentation](https://developer.apple.com/documentation/coreimage/cifilter/3228422-textimagegenerator)
 	///
 	/// Categories: Generator, Video, Still Image, Built-In
 	///
