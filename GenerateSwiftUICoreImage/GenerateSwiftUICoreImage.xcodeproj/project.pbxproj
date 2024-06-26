@@ -11,7 +11,6 @@
 		CE9A3AC22C2B75090085C241 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9A3AC12C2B75090085C241 /* ContentView.swift */; };
 		CE9A3AE82C2B75260085C241 /* abstracts.json in Resources */ = {isa = PBXBuildFile; fileRef = CE9A3AD12C2B75260085C241 /* abstracts.json */; };
 		CE9A3AE92C2B75260085C241 /* CIImage-Generation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9A3AD22C2B75260085C241 /* CIImage-Generation.swift */; };
-		CE9A3AEA2C2B75260085C241 /* DocumentedFunctions.json in Resources */ = {isa = PBXBuildFile; fileRef = CE9A3AD32C2B75260085C241 /* DocumentedFunctions.json */; };
 		CE9A3AEB2C2B75260085C241 /* FunctionMinima.json in Resources */ = {isa = PBXBuildFile; fileRef = CE9A3AD42C2B75260085C241 /* FunctionMinima.json */; };
 		CE9A3AEC2C2B75260085C241 /* MissingParameterDocumentation.json in Resources */ = {isa = PBXBuildFile; fileRef = CE9A3AD52C2B75260085C241 /* MissingParameterDocumentation.json */; };
 		CE9A3AED2C2B75260085C241 /* CIImage-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9A3AD72C2B75260085C241 /* CIImage-Extensions.swift */; };
@@ -25,7 +24,6 @@
 		CE9A3AC12C2B75090085C241 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		CE9A3AD12C2B75260085C241 /* abstracts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = abstracts.json; sourceTree = "<group>"; };
 		CE9A3AD22C2B75260085C241 /* CIImage-Generation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CIImage-Generation.swift"; sourceTree = "<group>"; };
-		CE9A3AD32C2B75260085C241 /* DocumentedFunctions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DocumentedFunctions.json; sourceTree = "<group>"; };
 		CE9A3AD42C2B75260085C241 /* FunctionMinima.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = FunctionMinima.json; sourceTree = "<group>"; };
 		CE9A3AD52C2B75260085C241 /* MissingParameterDocumentation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MissingParameterDocumentation.json; sourceTree = "<group>"; };
 		CE9A3AD72C2B75260085C241 /* CIImage-Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CIImage-Extensions.swift"; sourceTree = "<group>"; };
@@ -78,7 +76,6 @@
 			children = (
 				CE9A3AD12C2B75260085C241 /* abstracts.json */,
 				CE9A3AD22C2B75260085C241 /* CIImage-Generation.swift */,
-				CE9A3AD32C2B75260085C241 /* DocumentedFunctions.json */,
 				CE9A3AD42C2B75260085C241 /* FunctionMinima.json */,
 				CE9A3AD52C2B75260085C241 /* MissingParameterDocumentation.json */,
 			);
@@ -157,7 +154,6 @@
 			files = (
 				CE9A3AE82C2B75260085C241 /* abstracts.json in Resources */,
 				CE9A3AEC2C2B75260085C241 /* MissingParameterDocumentation.json in Resources */,
-				CE9A3AEA2C2B75260085C241 /* DocumentedFunctions.json in Resources */,
 				CE9A3AEB2C2B75260085C241 /* FunctionMinima.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

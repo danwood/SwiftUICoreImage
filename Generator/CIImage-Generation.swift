@@ -60,21 +60,6 @@ func dumpFilters() {
 		  let functionMinima: [String: String] = json as? [String: String]
 	else { print("// 🛑 can't load FunctionMinima.json"); return }
 
-	// Load the 174 known documented filters; this leaves 56 filters/generators that don't have documentation
-	/*
-
-
-	 How do we know that these functions (and only these functions) have real documentation?
-
-
-	 */
-	guard let url = Bundle.main.url(forResource: "DocumentedFunctions", withExtension: "json"),
-		  let data = try? Data(contentsOf: url),
-		  let json = try? JSONSerialization.jsonObject(with: data, options: []),
-		  let documentedFunctionsArray: [String] = json as? [String]
-	else { print("// 🛑 can't load DocumentedFunctions.json"); return }
-	let documentedFunctions: Set<String> = Set(documentedFunctionsArray)
-
 	// Load documentation for parameters that is missing from the API, from a file painstakingly scraped from the web.
 	guard let url = Bundle.main.url(forResource: "MissingParameterDocumentation", withExtension: "json"),
 		  let data = try? Data(contentsOf: url),
@@ -118,7 +103,7 @@ func dumpFilters() {
 	print("//")
 	for filterName in imageToImage.keys.sorted() {
 		guard let filter: CIFilter = imageToImage[filterName] else { continue }
-		outputImageToImage(filter, documentedFunctions: documentedFunctions, abstractLookup: abstractLookup, functionMinima: functionMinima)
+		outputImageToImage(filter, abstractLookup: abstractLookup, functionMinima: functionMinima)
 	}
 	print("")
 	print("//")
@@ -126,7 +111,7 @@ func dumpFilters() {
 	print("//")
 	for filterName in generators.keys.sorted() {
 		guard let filter: CIFilter = generators[filterName] else { continue }
-		outputGeneratorFilter(filter, documentedFunctions: documentedFunctions, abstractLookup: abstractLookup, functionMinima: functionMinima)
+		outputGeneratorFilter(filter, abstractLookup: abstractLookup, functionMinima: functionMinima)
 	}
 
 	// End of class extension
@@ -146,7 +131,7 @@ private func dumpUnknownProperties() {
 	}
 }
 
-private func outputGeneratorFilter(_ filter: CIFilter, documentedFunctions: Set<String>, abstractLookup: [String: String], functionMinima: [String: String]) {
+private func outputGeneratorFilter(_ filter: CIFilter, abstractLookup: [String: String], functionMinima: [String: String]) {
 	let filterName = filter.name
 
 	let filtersThatAlreadyHaveInitializer: [String: String] = ["CIConstantColorGenerator": "init(color: CIColor)"]
@@ -156,12 +141,12 @@ private func outputGeneratorFilter(_ filter: CIFilter, documentedFunctions: Set<
 		return
 	}
 
-	outputDocumentation(filter, isGenerator: true, documentedFunctions: documentedFunctions, abstractLookup: abstractLookup)
+	outputDocumentation(filter, isGenerator: true, abstractLookup: abstractLookup)
 	outputOSVersion(filter, functionMinima: functionMinima)
 	outputImageFunction(filter, isGenerator: true)
 }
 
-private func outputDocumentation(_ filter: CIFilter, isGenerator: Bool, documentedFunctions: Set<String>, abstractLookup: [String: String]) {
+private func outputDocumentation(_ filter: CIFilter, isGenerator: Bool, abstractLookup: [String: String]) {
 
 	let filterName = filter.name
 	let description: String? = CIFilter.localizedDescription(forFilterName: filterName)
@@ -182,7 +167,7 @@ private func outputDocumentation(_ filter: CIFilter, isGenerator: Bool, document
 		print("///")
 	}
 	if let documentationURL {
-		if !documentedFunctions.contains(filterName) {
+		if nil == abstractLookup[filterName] {
 			print("/// ⚠️ No Apple Documentation available for '\(filterName)'")
 		} else {
 			let urlFragment: String
@@ -527,7 +512,7 @@ private func outputImageFunction(_ filter: CIFilter, isGenerator: Bool) {
 	print("}")
 }
 
-private func outputImageToImage(_ filter: CIFilter, documentedFunctions: Set<String>, abstractLookup: [String: String], functionMinima: [String: String]) {
+private func outputImageToImage(_ filter: CIFilter, abstractLookup: [String: String], functionMinima: [String: String]) {
 
 	let filterName = filter.name
 
@@ -543,7 +528,7 @@ private func outputImageToImage(_ filter: CIFilter, documentedFunctions: Set<Str
 		print("")
 		return
 	}
-	outputDocumentation(filter, isGenerator: false, documentedFunctions: documentedFunctions, abstractLookup: abstractLookup)
+	outputDocumentation(filter, isGenerator: false, abstractLookup: abstractLookup)
 	outputOSVersion(filter, functionMinima: functionMinima)
 
 	if filtersWithoutSwiftAPI.contains(filterName) {
