@@ -501,11 +501,12 @@ private func outputImageFunction(_ filter: CIFilter, isGenerator: Bool) {
 					return "    filter.\(inputName) = Float(\(inputName))"
 				}
 			}
+
+			// Annoying to have these negative cases, but the instances where
+			// we need to wrap in a float are much more numerous!
 			if !(filterFunction == "kMeans" && inputName == "count"),	// this function's parameter wants an integer so leave alone
 			   !(filterFunction == "cannyEdgeDetector" && inputName == "hysteresisPasses"),
 			   !(filterFunction == "personSegmentation" && inputName == "qualityLevel"),
-
-				// TODO how to get rid of these special NEGATIVE cases? ^^^
 
 				attributeType == kCIAttributeTypeInteger || attributeType == kCIAttributeTypeCount {
 				return "    filter.\(inputName) = Float(\(inputName))"	// We pass in Int, but function wants a Float
