@@ -4201,7 +4201,7 @@ public extension CIImage {
 	///   - topRight: The top right coordinate to be perspective corrected.
 	///   - bottomRight: The bottom right coordinate to be perspective corrected.
 	///   - bottomLeft: The bottom left coordinate to be perspective corrected.
-	///   - crop: _____TODO_____
+	///   - crop: A rectangle that specifies the extent of the corrected image. Not documented; perhaps obsolete.
 	///   - active: should this filter be applied
 	/// - Returns: processed new `CIImage`, or identity if `active` is false
 	@available(iOS 13, macOS 10.15, *)

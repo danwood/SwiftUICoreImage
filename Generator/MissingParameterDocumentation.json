@@ -3,7 +3,7 @@
 		"softness" : "The softness of the bokeh effect"
 	},
 	"CIDepthBlurEffect" : {
-		"_NOTE" : "THIS WAS GLEANED FROM WWDC2017#508 VIDEO; NO OFFICIAL APPLE DOCUMENTATION FOUND",
+		"_NOTE" : "THIS WAS GLEANED FROM WWDC2017#508 VIDEO; NO OFFICIAL APPLE DOCUMENTATION FOUND. NOT ACTUALLY USED HERE BECAUSE OF SEVERAL BUILT-IN INITIALIZERS.",
 		"aperture" : "Simulated lens aperature to adjust blur for unfocused elements",
 		"auxDataMetadata" : "UNKNOWN",
 		"calibrationData" : "UNKNOWN",
@@ -47,6 +47,9 @@
 	},
 	"CILenticularHaloGenerator" : {
 		"haloOverlap" : "A float representing the overlap of red, green, and blue halos. A value of 1 results in a full overlap."
+	},
+	"CIPerspectiveCorrection" : {
+		"crop" : "A rectangle that specifies the extent of the corrected image. Not documented; perhaps obsolete."
 	},
 	"CIToneCurve" : {
 		"point0" : "A vector containing the position of the first point of the tone curve",

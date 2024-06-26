@@ -171,13 +171,20 @@ func dumpFilters() {
 
 // Use this to start collecting properties needing some documentation, to then put into MissingParameterDocumentation.json
 func dumpUnknownProperties() {
-	if let theJSONData = try?  JSONSerialization.data(
-		withJSONObject: unknownProperties,
-		options: [.sortedKeys, .prettyPrinted]
-	),
-	   let theJSONText = String(data: theJSONData,
-								encoding: String.Encoding.ascii) {
-		print("\n\n\n_________________________\n\nDumped properties missing documentation = \n\n\n\(theJSONText)")
+	do {
+		let theJSONData = try JSONSerialization.data(
+			withJSONObject: unknownProperties,
+			options: [.sortedKeys, .prettyPrinted]
+		)
+		if let theJSONText = String(data: theJSONData,
+									encoding: String.Encoding.utf8) {
+			print("\n\n\n_________________________\n\nDumped properties missing documentation = \n\n\n\(theJSONText)")
+		} else {
+			print("Unable to convert data to JSON")
+		}
+	}
+	catch {
+		print(error)
 	}
 }
 
